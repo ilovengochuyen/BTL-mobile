@@ -1,0 +1,6 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/uzair657/oms/MainActivity.java
+ com.uzair657.oms.MainActivity
+com/uzair657/oms/BuildConfig.java
+ com.uzair657.oms.BuildConfig
