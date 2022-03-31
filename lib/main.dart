@@ -8,10 +8,10 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: 'login',
-      title: 'MANGA',
+      title: 'OMS',
       routes: {
         'login': (context) => myLogin(),
-        'Register': (context) => myRegister(),
+        'register': (context) => myRegister(),
         'forgot': (context) => resetPassword(),
       },
     ),
