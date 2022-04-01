@@ -5,8 +5,8 @@ Comic reader appication similar to [Comico](https://play.google.com/store/apps/d
 ## Introduction
 
 This is the repository for mobile programming course in our university.
-presentations Slide : [Slide](https://www.canva.com/design/DAE6kHfydoI/ZjVFb097PXXwROySSYPzoA/edit?utm_content=DAE6kHfydoI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
-Figma: [Figma](https://www.figma.com/file/N1oE34VivCMHh7Mwal4UJo/Manga-ui-(Community)?node-id=0%3A1)
+- presentations Slide : [Slide](https://www.canva.com/design/DAE6kHfydoI/ZjVFb097PXXwROySSYPzoA/edit?utm_content=DAE6kHfydoI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- Figma: [Figma](https://www.figma.com/file/N1oE34VivCMHh7Mwal4UJo/Manga-ui-(Community)?node-id=0%3A1)
 
 ## Prerequisite
 
