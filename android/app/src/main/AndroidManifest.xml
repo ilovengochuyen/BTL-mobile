@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.uzair657.oms">
+    package="com.example.flutter_comico">
    <application
-        android:label="OMS"
+        android:label="flutter_comico"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
