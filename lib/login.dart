@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import  'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class myLogin extends StatefulWidget {
@@ -38,8 +38,8 @@ class _myLoginState extends State<myLogin> {
                       style: TextStyle(
                         color: Colors.white,
                         fontFamily: 'Inter',
-                        fontSize: 40, 
-                        fontWeight: FontWeight.w500,
+                        fontSize: 50,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),
@@ -96,7 +96,9 @@ class _myLoginState extends State<myLogin> {
                                 primary: Colors.green,
                                 shape: StadiumBorder(),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, 'profile');
+                              },
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.center,

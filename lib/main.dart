@@ -3,6 +3,7 @@ import 'package:oms/login.dart';
 import 'package:oms/register.dart';
 import 'package:oms/resetpass.dart';
 import 'package:oms/signup.dart';
+import 'package:oms/userprofile.dart';
 
 void main() {
   runApp(
@@ -15,6 +16,8 @@ void main() {
         'Register': (context) => myRegister(),
         'forgot': (context) => resetPassword(),
         'signup': (context) => SignupPage(),
+        'profile': (context) => UserProfile(),
+        //'profileEdit': (context) =>
       },
     ),
   );
