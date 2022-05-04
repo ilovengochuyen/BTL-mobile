@@ -1,4 +1,4 @@
-# flutter_comico
+# comic_chapter
 
 A new Flutter project.
 
