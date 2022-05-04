@@ -12,13 +12,13 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->D:\BTL-mobile\android\app\src\debug\AndroidManifest.xml:6:5-66
-14-->D:\BTL-mobile\android\app\src\debug\AndroidManifest.xml:6:22-64
+14-->/home/perry/Desktop/flutter PJ/BTL-mobile/android/app/src/debug/AndroidManifest.xml:6:5-66
+14-->/home/perry/Desktop/flutter PJ/BTL-mobile/android/app/src/debug/AndroidManifest.xml:6:22-64
 15
 16    <application
 17        android:name="android.app.Application"
 18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-18-->[androidx.core:core:1.6.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\67ff0aaf930f65024e6c37d99bc9e852\core-1.6.0\AndroidManifest.xml:24:18-86
+18-->[androidx.core:core:1.6.0] /home/perry/.gradle/caches/transforms-2/files-2.1/67ff0aaf930f65024e6c37d99bc9e852/core-1.6.0/AndroidManifest.xml:24:18-86
 19        android:debuggable="true"
 20        android:icon="@mipmap/ic_launcher"
 21        android:label="OMS" >
@@ -56,17 +56,17 @@
 53            android:value="2" />
 54
 55        <uses-library
-55-->[androidx.window:window:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\e4e324fde2799cc82a9b6d2e3e16efc2\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+55-->[androidx.window:window:1.0.0-beta04] /home/perry/.gradle/caches/transforms-2/files-2.1/e4e324fde2799cc82a9b6d2e3e16efc2/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
 56            android:name="androidx.window.extensions"
-56-->[androidx.window:window:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\e4e324fde2799cc82a9b6d2e3e16efc2\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+56-->[androidx.window:window:1.0.0-beta04] /home/perry/.gradle/caches/transforms-2/files-2.1/e4e324fde2799cc82a9b6d2e3e16efc2/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
 57            android:required="false" />
-57-->[androidx.window:window:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\e4e324fde2799cc82a9b6d2e3e16efc2\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+57-->[androidx.window:window:1.0.0-beta04] /home/perry/.gradle/caches/transforms-2/files-2.1/e4e324fde2799cc82a9b6d2e3e16efc2/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
 58        <uses-library
-58-->[androidx.window:window:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\e4e324fde2799cc82a9b6d2e3e16efc2\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+58-->[androidx.window:window:1.0.0-beta04] /home/perry/.gradle/caches/transforms-2/files-2.1/e4e324fde2799cc82a9b6d2e3e16efc2/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
 59            android:name="androidx.window.sidecar"
-59-->[androidx.window:window:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\e4e324fde2799cc82a9b6d2e3e16efc2\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+59-->[androidx.window:window:1.0.0-beta04] /home/perry/.gradle/caches/transforms-2/files-2.1/e4e324fde2799cc82a9b6d2e3e16efc2/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
 60            android:required="false" />
-60-->[androidx.window:window:1.0.0-beta04] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\e4e324fde2799cc82a9b6d2e3e16efc2\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+60-->[androidx.window:window:1.0.0-beta04] /home/perry/.gradle/caches/transforms-2/files-2.1/e4e324fde2799cc82a9b6d2e3e16efc2/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
 61    </application>
 62
 63</manifest>

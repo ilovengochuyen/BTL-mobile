@@ -1,23 +1,19 @@
-
 import 'package:flutter/material.dart';
-import 'package:oms/login.dart';
-import 'package:oms/register.dart';
-import 'package:oms/resetpass.dart';
-import 'package:oms/signup.dart';
+import 'package:manga/login.dart';
+import 'package:manga/register.dart';
+import 'package:manga/resetpass.dart';
 
 void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: 'login',
-      title: 'MANGA',
+      title: 'OMS',
       routes: {
         'login': (context) => myLogin(),
-        'Register': (context) => myRegister(),
+        'register': (context) => myRegister(),
         'forgot': (context) => resetPassword(),
-        'signup': (context) => SignupPage(),
       },
     ),
   );
 }
-

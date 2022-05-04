@@ -116,14 +116,13 @@ class _myLoginState extends State<myLogin> {
                         children: [
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'signup');
+                              Navigator.pushNamed(context, 'register');
                             },
                             child: Text(
                               'Sign Up',
                               style: TextStyle(color: Colors.white),
                             ),
                           ),
-
                           TextButton(
                             onPressed: () {
                               Navigator.pushNamed(context, 'forgot');

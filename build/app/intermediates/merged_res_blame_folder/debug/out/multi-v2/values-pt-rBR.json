@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\BTL-mobile\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt-rBR\\values-pt-rBR.xml",
+            "outputFile": "/home/perry/Desktop/flutter PJ/BTL-mobile/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rBR/values-pt-rBR.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\67ff0aaf930f65024e6c37d99bc9e852\\core-1.6.0\\res\\values-pt-rBR\\values-pt-rBR.xml",
+                    "source": "/home/perry/.gradle/caches/transforms-2/files-2.1/67ff0aaf930f65024e6c37d99bc9e852/core-1.6.0/res/values-pt-rBR/values-pt-rBR.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

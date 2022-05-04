@@ -1,16 +1,29 @@
-# flutter_comico
+# BTL_Mobile
 
-A new Flutter project.
+Comic reader appication similar to [Comico](https://play.google.com/store/apps/details?id=com.toast.comico.vn&hl=vi&gl=US)
 
-## Getting Started
+## Introduction
 
-This project is a starting point for a Flutter application.
+This is the repository for mobile programming course in our university.
+presentations Slide : [Slide](https://www.canva.com/design/DAE6kHfydoI/ZjVFb097PXXwROySSYPzoA/edit?utm_content=DAE6kHfydoI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+Figma: [Figma](https://www.figma.com/file/N1oE34VivCMHh7Mwal4UJo/Manga-ui-(Community)?node-id=0%3A1)
 
-A few resources to get you started if this is your first Flutter project:
+## Prerequisite
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+This project require some essential tools to run on your local machine:
+- [Flutter](https://flutter.dev/) 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## How to run this application?
+
+- Clone this repository:
+``` bash
+git clone https://github.com/ilovengochuyen/BTL-mobile
+```
+
+
+And you are ready to go!
+Enjoy!
+
+## Create testing data
+

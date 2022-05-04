@@ -7,7 +7,7 @@ class myRegister extends StatefulWidget {
   _myRegisterState createState() => _myRegisterState();
 }
 
-class _myRegisterState extends State<myRegister> {   
+class _myRegisterState extends State<myRegister> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
