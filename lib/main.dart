@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:manga/login.dart';
-import 'package:manga/register.dart';
-import 'package:manga/resetpass.dart';
+import 'package:manga/screens/login.dart';
+import 'package:manga/screens/register.dart';
+import 'package:manga/screens/resetpass.dart';
 
 void main() {
   runApp(
