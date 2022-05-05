@@ -44,9 +44,9 @@ class _myRegisterState extends State<myRegister> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                        fontFamily: 'Inter',
-                        fontSize: 40, 
-                        fontWeight: FontWeight.w500,
+                      fontFamily: 'Inter',
+                      fontSize: 40,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ],
@@ -60,28 +60,28 @@ class _myRegisterState extends State<myRegister> {
                   ),
                   child: Column(
                     children: [
-                          ElevatedButton(
-                              onPressed: () {
-                              Navigator.pushNamed(context, 'login');
-                            },
-                              style: ElevatedButton.styleFrom(
-                                maximumSize: Size(341.0, 90.0),
-                                minimumSize: Size(341.0, 60.0),
-                                primary: Colors.red,
-                                shape: StadiumBorder(),
-                              ),
-                             
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.center,
-                                //crossAxisAlignment: CrossAxisAlignment.center,
-                                //textAlign: TextAlign.center,
-                                children: [
-                                  
-                                  Text('Login',
-                                  ),
-                                ]
-                              )),
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, 'login');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            maximumSize: Size(341.0, 90.0),
+                            minimumSize: Size(341.0, 60.0),
+                            primary: Colors.red,
+                            shape: StadiumBorder(),
+                          ),
+
+                          child: Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment.center,
+                              //crossAxisAlignment: CrossAxisAlignment.center,
+                              //textAlign: TextAlign.center,
+                              children: [
+
+                                Text('Login',
+                                ),
+                              ]
+                          )),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -95,7 +95,7 @@ class _myRegisterState extends State<myRegister> {
                             ),
                           ),
                         ],
-                        
+
                       ),
 
                     ],

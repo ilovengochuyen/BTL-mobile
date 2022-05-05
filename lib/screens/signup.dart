@@ -24,28 +24,32 @@ class SignupPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
             padding: EdgeInsets.symmetric(horizontal: 40),
-            height: MediaQuery.of(context).size.height - 50,
             width: double.infinity,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                Image.asset("assets/comico.png"),
+                SizedBox(height: 40),
                 Column(
                   children: <Widget>[
+                    /*
                     Text(
-                      "Đăng ký",
+                      "Sign Up",
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                         color: Color(0xffff3300),
 
                       ),),
+                    */
                     SizedBox(height: 20,),
 
                   ],
                 ),
+                SizedBox(height: 20),
                 TextField(
                     decoration: InputDecoration(
-                        hintText: "Tên người dùng",
+                        hintText: "Username",
                         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -54,6 +58,7 @@ class SignupPage extends StatelessWidget {
                         )
                     )
                 ),
+                SizedBox(height: 20),
                 TextField(
                     decoration: InputDecoration(
                         hintText: "Email",
@@ -65,9 +70,10 @@ class SignupPage extends StatelessWidget {
                         )
                     )
                 ),
+                SizedBox(height: 20),
                 TextField(
                     decoration: InputDecoration(
-                        hintText: "Mật khẩu",
+                        hintText: "Password",
                         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -76,9 +82,10 @@ class SignupPage extends StatelessWidget {
                         )
                     )
                 ),
+                SizedBox(height: 20),
                 TextField(
                     decoration: InputDecoration(
-                        hintText: "Nhập lại mật khẩu",
+                        hintText: "Confirm password",
                         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -87,7 +94,7 @@ class SignupPage extends StatelessWidget {
                         )
                     )
                 ),
-
+                SizedBox(height: 40),
                 Container(
                   padding: EdgeInsets.only(top: 3, left: 3),
                   decoration:
@@ -107,7 +114,7 @@ class SignupPage extends StatelessWidget {
 
                     ),
                     child: Text(
-                      "Đăng ký", style: TextStyle(
+                      "Sign Up", style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,
                       color: Colors.white,
@@ -118,16 +125,17 @@ class SignupPage extends StatelessWidget {
 
 
                 ),
+                SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Bạn đã có tài khoản?"),
+                    Text("You have already had an account?"),
                     GestureDetector(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> myLogin()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
                       },
                       child: Text(
-                          " Đăng nhập",
+                          " Log In",
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 18,
@@ -137,8 +145,6 @@ class SignupPage extends StatelessWidget {
                     )
                   ],
                 ),
-
-                SizedBox(height: 10,)
               ],
             )
 

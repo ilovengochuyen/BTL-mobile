@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manga/screens/startScreen.dart';
 
 class resetPassword extends StatefulWidget {
   const resetPassword({Key? key}) : super(key: key);
@@ -29,18 +30,20 @@ class _resetPasswordState extends State<resetPassword> {
                 children: [
                   Container(
                     padding: EdgeInsets.only(
-                      top: 120.0,
+                      top: 100,
                     ),
+/*
                     child: Text(
                       'Reset Now',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.red,
                         fontFamily: 'Inter',
                         fontSize: 30, 
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+*/
                   ),
                 ],
               ),
@@ -52,6 +55,7 @@ class _resetPasswordState extends State<resetPassword> {
                     right: 35,
                   ),
                   child: Column(
+
                     children: [
                       TextFormField(
                         obscureText: true,
@@ -71,18 +75,17 @@ class _resetPasswordState extends State<resetPassword> {
                         children: [
                           ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                maximumSize: Size(340.0, 90.0),
-                                minimumSize: Size(340.0, 60.0),
-                                primary: Colors.red,
+                                maximumSize: Size(290.0, 90.0),
+                                minimumSize: Size(290.0, 60.0),
+                                primary: Colors.deepOrange,
                                 shape: StadiumBorder(),
                               ),
                               onPressed: () {},
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 //crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text('Reset Now'),
+                                  Text('Reset Now', style: TextStyle(fontSize: 18)),
                                   Icon(
                                     Icons.refresh,
                                     color: Colors.white,
@@ -97,11 +100,11 @@ class _resetPasswordState extends State<resetPassword> {
                         children: [
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'register');
+                              Navigator.pushNamed(context, 'signup');
                             },
                             child: Text(
-                              'Register',
-                              style: TextStyle(color: Colors.red),
+                              'Sign Up',
+                              style: TextStyle(color: Colors.deepOrange),
                             ),
                           ),
                           TextButton(
@@ -109,8 +112,8 @@ class _resetPasswordState extends State<resetPassword> {
                               Navigator.pushNamed(context, 'login');
                             },
                             child: Text(
-                              'Login',
-                              style: TextStyle(color: Colors.red),
+                              'Log In',
+                              style: TextStyle(color: Colors.deepOrange),
                             ),
                           ),
                         ],

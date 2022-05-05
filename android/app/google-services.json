@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "34841902852",
-    "project_id": "fluttercomico",
-    "storage_bucket": "fluttercomico.appspot.com"
+    "project_number": "1012138609134",
+    "project_id": "btl-mobile-2af98",
+    "storage_bucket": "btl-mobile-2af98.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:34841902852:android:b6b66efd5ab575d2a49a51",
+        "mobilesdk_app_id": "1:1012138609134:android:97fdf06bd04578988726ff",
         "android_client_info": {
-          "package_name": "com.example.untitled4"
+          "package_name": "com.uzair657.oms"
         }
       },
       "oauth_client": [
         {
-          "client_id": "34841902852-2mfcgqu6ib7vkhmmuugv4p68f755ks7e.apps.googleusercontent.com",
+          "client_id": "1012138609134-ajcfkukc1vng0jtnirsnb2ml3t1j81tg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.uzair657.oms",
+            "certificate_hash": "a981e178814c6bbbf3eae8e381cdd28daeaf3370"
+          }
+        },
+        {
+          "client_id": "1012138609134-plm2c4mhhcucrr750idkpmjv1pprrjqo.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCbVwrgwb7EefeqQs8kFP1-otQRi9OPIW8"
+          "current_key": "AIzaSyAhCC0r_L3n7WHxzuKITznuy6bAWJoo-Do"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "34841902852-2mfcgqu6ib7vkhmmuugv4p68f755ks7e.apps.googleusercontent.com",
+              "client_id": "1012138609134-plm2c4mhhcucrr750idkpmjv1pprrjqo.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
