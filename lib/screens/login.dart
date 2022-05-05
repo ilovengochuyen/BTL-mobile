@@ -1,147 +1,142 @@
-import 'package:flutter/cupertino.dart';
+import 'package:manga/screens/register.dart';
+import 'package:manga/screens/resetpass.dart';
+
+import 'startScreen.dart';
 import 'package:flutter/material.dart';
 
-class myLogin extends StatefulWidget {
-  const myLogin({Key? key}) : super(key: key);
-
-  @override
-  _myLoginState createState() => _myLoginState();
-}
-
-class _myLoginState extends State<myLogin> {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              'assets/register.png',
-            ),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Scaffold(
-          backgroundColor: Color.fromARGB(0, 230, 11, 11),
-          body: Stack(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(
-                      top: 160.0,
-                    ),
-                    child: Text(
-                      'Comico',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'Inter',
-                        fontSize: 40, 
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SingleChildScrollView(
-                child: Container(
-                  padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.5,
-                    left: 35,
-                    right: 35,
-                  ),
-                  child: Column(
-                    children: [
-                      TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Username',
-                          fillColor: Colors.grey.shade100,
-                          filled: true,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 30.0),
-                      TextFormField(
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter the password';
-                          } else if (value.length <= 6) {
-                            return 'Password must be greator than 6 digits';
-                          }
-                        },
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: 'Password',
-                          fillColor: Colors.grey.shade100,
-                          filled: true,
-                          // hintText: 'Password',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 30.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ElevatedButton(
-                              
-                              style: ElevatedButton.styleFrom(
-                                maximumSize: Size(160.0, 90.0),
-                                minimumSize: Size(160.0, 60.0),
-                                primary: Colors.green,
-                                shape: StadiumBorder(),
-                              ),
-                              onPressed: () {},
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.center,
-                                //crossAxisAlignment: CrossAxisAlignment.center,
-                                //textAlign: TextAlign.center,
-                                children: [
-                                  
-                                  Text('Login',
-                                  ),
-                                ]
-                              )),
-                        ],
-                      ),
-                      SizedBox(height: 30.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, 'register');
-                            },
-                            child: Text(
-                              'Sign Up',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, 'forgot');
-                            },
-                            child: Text(
-                              'Forgot password?',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios,
+            size: 20,
+            color: Colors.black,),
+
+
         ),
       ),
+      body: SingleChildScrollView(
+        child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 40),
+            height: MediaQuery.of(context).size.height - 50,
+            width: double.infinity,
+            child: Column (
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Column (
+                  children: <Widget>[
+                    Image.asset("assets/comico.png"),
+
+                    SizedBox(height: 40),
+/*
+                    Text(
+                      "Log In",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w900,
+                        color: Color(0xffff3300),
+
+                      ),),
+
+ */
+                  ],
+                ),
+                SizedBox(height: 20),
+                TextField(
+                    decoration: InputDecoration(
+                        hintText: "Email",
+                        contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey
+                          ),
+                        )
+                    )
+                ),
+                SizedBox(height: 20),
+                TextField(
+                    decoration: InputDecoration(
+                        hintText: "Password",
+                        contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey
+                          ),
+                        )
+                    )
+                ),
+                SizedBox(height: 50),
+                Container(
+                  padding: EdgeInsets.only(top: 3, left: 3),
+                  decoration:
+                  BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border(
+                      )
+
+                  ),
+                  child: MaterialButton(
+                    minWidth: double.infinity,
+                    height: 60,
+                    onPressed: () {},
+                    color: Color(0xffff3300),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+
+                    ),
+                    child: Text(
+                      "LOG IN", style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                    ),
+
+                  ),
+
+
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("Forget your password?",),
+
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> resetPassword()));
+                      },
+                      child: Text(
+                          " Reset Now",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              color: Color(0xffff3300)
+                          )),
+
+                    )
+                  ],
+                ),
+              ],
+            )
+
+
+        ),
+
+
+      ),
+
     );
   }
 }
+
+
