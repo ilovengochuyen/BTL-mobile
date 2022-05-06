@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 
-class startScreen extends StatelessWidget {
+class StartScreen extends StatefulWidget {
+  const StartScreen({Key? key}) : super(key: key);
+
+  @override
+  StartScreenState createState() => StartScreenState();
+}
+
+class StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -23,8 +30,8 @@ class startScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
 
             children: <Widget> [
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                   "comico",
                   style: TextStyle(
                     color: Colors.white,
@@ -34,7 +41,7 @@ class startScreen extends StatelessWidget {
                       decoration: TextDecoration.none
                   )),
 
-              SizedBox(height: 100),
+              const SizedBox(height: 100),
 
               RoundedButton(
                 text: "LOG IN",
@@ -75,7 +82,7 @@ class RoundedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       width: size.width * 0.8,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
@@ -96,7 +103,7 @@ class RoundedButton extends StatelessWidget {
       onPressed: press,
       style: ElevatedButton.styleFrom(
           primary: color,
-          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           textStyle: TextStyle(
               color: textColor, fontSize: 14, fontWeight: FontWeight.w500)),
     );

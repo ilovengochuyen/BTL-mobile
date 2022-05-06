@@ -1,10 +1,19 @@
-import 'package:manga/screens/register.dart';
 import 'package:manga/screens/resetpass.dart';
-
-import 'startScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:manga/widgets/reusable_widget.dart';
+import 'package:manga/screens/home_screen.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  LoginPageState createState() => LoginPageState();
+}
+
+class LoginPageState extends State<LoginPage> {
+  TextEditingController _passwordTextController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +26,7 @@ class LoginPage extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios,
+          icon: const Icon(Icons.arrow_back_ios,
             size: 20,
             color: Colors.black,),
 
@@ -26,96 +35,49 @@ class LoginPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 40),
+            padding: const EdgeInsets.symmetric(horizontal: 40),
             height: MediaQuery.of(context).size.height - 50,
             width: double.infinity,
             child: Column (
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Column (
-                  children: <Widget>[
-                    Image.asset("assets/comico.png"),
-
-                    SizedBox(height: 40),
-/*
-                    Text(
-                      "Log In",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w900,
-                        color: Color(0xffff3300),
-
-                      ),),
-
- */
-                  ],
+                Image.asset("assets/comico.png"),
+                const SizedBox(
+                  height: 30,
                 ),
-                SizedBox(height: 20),
-                TextField(
-                    decoration: InputDecoration(
-                        hintText: "Email",
-                        contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.grey
-                          ),
-                        )
-                    )
+                reusableTextField("Enter UserName", Icons.person_outline, false,
+                    _emailTextController),
+                const SizedBox(
+                  height: 20,
                 ),
-                SizedBox(height: 20),
-                TextField(
-                    decoration: InputDecoration(
-                        hintText: "Password",
-                        contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.grey
-                          ),
-                        )
-                    )
+                reusableTextField("Enter Password", Icons.lock_outline, true,
+                    _passwordTextController),
+                const SizedBox(
+                  height: 5,
                 ),
-                SizedBox(height: 50),
-                Container(
-                  padding: EdgeInsets.only(top: 3, left: 3),
-                  decoration:
-                  BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      border: Border(
-                      )
-
-                  ),
-                  child: MaterialButton(
-                    minWidth: double.infinity,
-                    height: 60,
-                    onPressed: () {},
-                    color: Color(0xffff3300),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-
-                    ),
-                    child: Text(
-                      "LOG IN", style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
-                    ),
-
-                  ),
-
-
-                ),
-                SizedBox(height: 10,),
+                firebaseUIButton(context, "Sign In", () {
+                  FirebaseAuth.instance
+                      .signInWithEmailAndPassword(
+                          email: _emailTextController.text,
+                          password: _passwordTextController.text)
+                      .then((value) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                  }).onError((error, stackTrace) {
+                    print("Error ${error.toString()}");
+                  });
+                }),
+                const SizedBox(height: 10,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Forget your password?",),
+                    const Text("Forget your password?",),
 
                     GestureDetector(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> resetPassword()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const resetPassword()));
                       },
-                      child: Text(
+                      child: const Text(
                           " Reset Now",
                           style: TextStyle(
                               fontWeight: FontWeight.w600,

@@ -8,14 +8,14 @@ void main() async {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: 'login',
-      title: 'OMS',
+      initialRoute: 'start',
+      title: 'manga',
       routes: {
         'login': (context) => LoginPage(),
         'register': (context) => myRegister(),
         'forgot': (context) => resetPassword(),
         'signup': (context) => SignupPage(),
-        'start': (context) => startScreen(),
+        'start': (context) => StartScreen(),
       },
     ),
   );

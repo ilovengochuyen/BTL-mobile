@@ -1,7 +1,20 @@
 import 'login.dart';
 import 'package:flutter/material.dart';
+import 'package:manga/screens/home_screen.dart';
+import 'package:manga/widgets/reusable_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
+  const SignupPage({Key? key}) : super(key: key);
+
+  @override
+  SignupPageState createState() => SignupPageState();
+}
+class SignupPageState extends State<SignupPage> {
+  TextEditingController _passwordTextController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _userNameTextController = TextEditingController();
+  TextEditingController _confirmPasswordTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +27,7 @@ class SignupPage extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios,
+          icon: const Icon(Icons.arrow_back_ios,
             size: 20,
             color: Colors.black,),
 
@@ -23,118 +36,58 @@ class SignupPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 40),
+            padding: const EdgeInsets.symmetric(horizontal: 40),
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset("assets/comico.png"),
-                SizedBox(height: 40),
-                Column(
-                  children: <Widget>[
-                    /*
-                    Text(
-                      "Sign Up",
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xffff3300),
-
-                      ),),
-                    */
-                    SizedBox(height: 20,),
-
-                  ],
+                const SizedBox(
+                  height: 20,
                 ),
-                SizedBox(height: 20),
-                TextField(
-                    decoration: InputDecoration(
-                        hintText: "Username",
-                        contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.grey
-                          ),
-                        )
-                    )
+                reusableTextField("Enter UserName", Icons.person_outline, false,
+                    _userNameTextController),
+                const SizedBox(
+                  height: 20,
                 ),
-                SizedBox(height: 20),
-                TextField(
-                    decoration: InputDecoration(
-                        hintText: "Email",
-                        contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.grey
-                          ),
-                        )
-                    )
+                reusableTextField("Enter Email Id", Icons.person_outline, false,
+                    _emailTextController),
+                const SizedBox(
+                  height: 20,
                 ),
-                SizedBox(height: 20),
-                TextField(
-                    decoration: InputDecoration(
-                        hintText: "Password",
-                        contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.grey
-                          ),
-                        )
-                    )
+                reusableTextField("Enter Password", Icons.lock_outlined, true,
+                    _passwordTextController),
+                const SizedBox(
+                  height: 20,
                 ),
-                SizedBox(height: 20),
-                TextField(
-                    decoration: InputDecoration(
-                        hintText: "Confirm password",
-                        contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.grey
-                          ),
-                        )
-                    )
-                ),
-                SizedBox(height: 40),
-                Container(
-                  padding: EdgeInsets.only(top: 3, left: 3),
-                  decoration:
-                  BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      border: Border(
-                      )
+                reusableTextField("Confirm Password", Icons.lock_outlined, true,
+                    _confirmPasswordTextController),
+                //Button Signup
+                const SizedBox(height: 40,),
+                firebaseUIButton(context, "Sign Up", () {
+                  FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                          email: _emailTextController.text,
+                          password: _passwordTextController.text)
+                      .then((value) {
+                    print("Created New Account");
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                  }).onError((error, stackTrace) {
+                    print("Error ${error.toString()}");
+                  });
+                }),
 
-                  ),
-                  child: MaterialButton(
-                    minWidth: double.infinity,
-                    height: 60,
-                    onPressed: () {},
-                    color: Color(0xffff3300),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-
-                    ),
-                    child: Text(
-                      "Sign Up", style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
-                    ),
-
-                  ),
-
-
-                ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("You have already had an account?"),
+                    const Text("You have already had an account?"),
                     GestureDetector(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
                       },
-                      child: Text(
+                      child: const Text(
                           " Log In",
                           style: TextStyle(
                               fontWeight: FontWeight.w600,

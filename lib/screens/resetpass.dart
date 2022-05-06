@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
-import 'package:manga/screens/startScreen.dart';
+import 'package:manga/widgets/reusable_widget.dart';
+import 'package:manga/screens/screens.dart';
 
 class resetPassword extends StatefulWidget {
   const resetPassword({Key? key}) : super(key: key);
@@ -9,11 +11,13 @@ class resetPassword extends StatefulWidget {
 }
 
 class _resetPasswordState extends State<resetPassword> {
+  TextEditingController _emailTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
               'assets/login.png',
@@ -29,21 +33,9 @@ class _resetPasswordState extends State<resetPassword> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       top: 100,
                     ),
-/*
-                    child: Text(
-                      'Reset Now',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontFamily: 'Inter',
-                        fontSize: 30, 
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-*/
                   ),
                 ],
               ),
@@ -57,43 +49,14 @@ class _resetPasswordState extends State<resetPassword> {
                   child: Column(
 
                     children: [
-                      TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: 'Email',
-                          fillColor: Colors.grey.shade100,
-                          filled: true,
-                          // hintText: 'Password',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 30.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                maximumSize: Size(290.0, 90.0),
-                                minimumSize: Size(290.0, 60.0),
-                                primary: Colors.deepOrange,
-                                shape: StadiumBorder(),
-                              ),
-                              onPressed: () {},
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                //crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text('Reset Now', style: TextStyle(fontSize: 18)),
-                                  Icon(
-                                    Icons.refresh,
-                                    color: Colors.white,
-                                  ),
-                                ],
-                              )),
-                        ],
-                      ),
+                      reusableTextField("Enter Email Id", Icons.person_outline, false,
+                      _emailTextController),
+                      const SizedBox(height: 40,),
+                      
+                      firebaseUIButton(context, "Reset Password", () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => StartScreen()));
+                      }),
                       SizedBox(height: 30.0),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -129,3 +92,4 @@ class _resetPasswordState extends State<resetPassword> {
     );
   }
 }
+
