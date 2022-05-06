@@ -1,8 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-com/example/flutter_comico/MainActivity.java
- com.example.flutter_comico.MainActivity
-com/uzair657/oms/MainActivity.java
- com.uzair657.oms.MainActivity
-com/uzair657/oms/BuildConfig.java
- com.uzair657.oms.BuildConfig
