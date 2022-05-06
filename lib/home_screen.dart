@@ -1,10 +1,195 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:home_screen/single_comic.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
-  Widget SingleComic() {
+  Widget _buildNewestComic(context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Mới nhất',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),),
+              Text('Xem tất cả',
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                  )),
+            ],
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              SingleComic(
+                onTap: () {},
+                image: 'https://techkalzen.com/wp-content/uploads/2020/03/violet-evergarden-the-movie-poster.jpg',
+                //"http://static2.minitokyo.net/view/45/00/62545.jpg",
+                name: 'Violet Evergarden',
+              ),
+
+              SingleComic(
+                onTap: () {},
+                image:
+                "http://static2.minitokyo.net/view/43/04/290243.jpg",
+                name: 'Chobits',
+              ),
+
+              SingleComic(
+                onTap: () {},
+                image:
+                "http://static2.minitokyo.net/view/28/44/527228.jpg",
+                name: 'Tsubasa Chronicle',
+              ),
+
+              SingleComic(
+                onTap: () {},
+                image:
+                "http://static.minitokyo.net/downloads/10/32/491610.jpg",
+                name: 'CardCaptor Sakura',
+              ),
+
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildHottestComic(context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Hấp dẫn nhất',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),),
+              Text('Xem tất cả',
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                  )),
+            ],
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+
+              SingleComic(
+                onTap: () {},
+                image:
+                "http://static2.minitokyo.net/view/45/00/62545.jpg",
+                name: 'One Piece',
+              ),
+
+              SingleComic(
+                onTap: () {},
+                image:
+                "http://static2.minitokyo.net/view/49/24/673749.jpg",
+                name: 'Naruto',
+              ),
+
+              SingleComic(
+                onTap: () {},
+                image:
+                "http://static2.minitokyo.net/view/05/32/444105.jpg",
+                name: 'D Gray-Man',
+              ),
+
+              SingleComic(
+                onTap: () {},
+                image:
+                "http://static2.minitokyo.net/view/37/37/386887.jpg",
+                name: 'Inuyasha',
+              ),
+
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildActionComic(context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Hành động',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),),
+              Text('Xem tất cả',
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                  )),
+            ],
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+
+              SingleComic(
+                onTap: () {},
+                image:
+                "http://static2.minitokyo.net/view/00/23/663650.jpg",
+                name: 'Fairy Tail',
+              ),
+
+              SingleComic(
+                onTap: () {},
+                image:
+                "http://static2.minitokyo.net/view/37/37/386887.jpg",
+                name: 'Inuyasha',
+              ),
+              SingleComic(
+                onTap: () {},
+                image:
+                "http://static2.minitokyo.net/view/45/00/62545.jpg",
+                name: 'One Piece',
+              ),
+
+              SingleComic(
+                onTap: () {},
+                image:
+                "http://static2.minitokyo.net/view/49/24/673749.jpg",
+                name: 'Naruto',
+              ),
+
+
+
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+
+/*  Widget SingleComic() {
     return Container(
         margin: EdgeInsets.symmetric(horizontal: 5),
         height: 180,
@@ -43,7 +228,7 @@ class HomeScreen extends StatelessWidget {
           ],
         )
     );
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -84,37 +269,12 @@ class HomeScreen extends StatelessWidget {
               //height: 200,
               child: Carousel(),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 7),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Mới nhất',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),),
-                  Text('Xem tất cả',
-                      style: TextStyle(
-                        color: Colors.grey[400],
-                      )),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SingleComic(),
-                  SingleComic(),
-                  SingleComic(),
-                  SingleComic(),
-                  SingleComic(),
-                ],
-              ),
-            ),
+            _buildNewestComic(context),
+            _buildHottestComic(context),
+            _buildActionComic(context),
 
-            Padding(
+
+            /*Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -142,67 +302,8 @@ class HomeScreen extends StatelessWidget {
                   SingleComic(),
                 ],
               ),
-            ),
+            ),*/
 
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Hành động',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),),
-                  Text('Xem tất cả',
-                      style: TextStyle(
-                        color: Colors.grey[400],
-                      )),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SingleComic(),
-                  SingleComic(),
-                  SingleComic(),
-                  SingleComic(),
-                  SingleComic(),
-                ],
-              ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Trinh thám',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),),
-                  Text('Xem tất cả',
-                      style: TextStyle(
-                        color: Colors.grey[400],
-                      )),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SingleComic(),
-                  SingleComic(),
-                  SingleComic(),
-                  SingleComic(),
-                  SingleComic(),
-                ],
-              ),
-            ),
           ],
         ),
       )
