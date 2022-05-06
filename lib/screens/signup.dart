@@ -1,3 +1,7 @@
+import 'package:manga/widgets/password_field.dart';
+import 'package:manga/widgets/round_button.dart';
+import 'package:manga/widgets/text_field.dart';
+
 import 'login.dart';
 import 'package:flutter/material.dart';
 
@@ -37,21 +41,15 @@ class SignupPageState extends State<SignupPage> {
                 Image.asset("assets/comico.png"),
                 const SizedBox(height: 40),
                 Column(
-                  children: <Widget>[
-                    /*
-                    Text(
-                      "Sign Up",
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xffff3300),
-
-                      ),),
-                    */
+                  children: <Widget> [
                     const SizedBox(height: 20,),
-
+                    InputField(hintText: "Username", onChanged: (value) {}, icon: Icons.person),
+                    InputField(hintText: "Email", onChanged: (value) {}, icon: Icons.mail),
+                    PasswordField(hintText: "Password",onChanged: (value) {}),
+                    PasswordField(hintText: "Confirm password",onChanged: (value) {}),
                   ],
                 ),
+                /*
                 const SizedBox(height: 20),
                 const TextField(
                     decoration: InputDecoration(
@@ -78,6 +76,7 @@ class SignupPageState extends State<SignupPage> {
                 ),
                 const SizedBox(height: 20),
                 const TextField(
+                  obscureText: true,
                     decoration: InputDecoration(
                         hintText: "Password",
                         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -90,6 +89,7 @@ class SignupPageState extends State<SignupPage> {
                 ),
                 const SizedBox(height: 20),
                 const TextField(
+                  obscureText: true,
                     decoration: InputDecoration(
                         hintText: "Confirm password",
                         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -100,6 +100,8 @@ class SignupPageState extends State<SignupPage> {
                         )
                     )
                 ),
+
+                 */
                 const SizedBox(height: 40),
                 Container(
                   padding: const EdgeInsets.only(top: 3, left: 3),

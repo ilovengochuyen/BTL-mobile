@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:manga/widgets/text_field.dart';
 //import 'package:manga/screens/startScreen.dart';
 
 class resetPassword extends StatefulWidget {
@@ -40,7 +41,7 @@ class _resetPasswordState extends State<resetPassword> {
                       style: TextStyle(
                         color: Colors.red,
                         fontFamily: 'Inter',
-                        fontSize: 30, 
+                        fontSize: 30,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -58,19 +59,8 @@ class _resetPasswordState extends State<resetPassword> {
                   child: Column(
 
                     children: [
-                      TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: 'Email',
-                          fillColor: Colors.grey.shade100,
-                          filled: true,
-                          // hintText: 'Password',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 30.0),
+                      InputField(hintText: "Email", onChanged: (value) {}, icon: Icons.mail),
+                      const SizedBox(height: 30.0),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [

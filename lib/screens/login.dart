@@ -2,6 +2,9 @@ import 'package:manga/screens/resetpass.dart';
 
 //import 'startScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:manga/widgets/password_field.dart';
+import 'package:manga/widgets/round_button.dart';
+import 'package:manga/widgets/text_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -41,46 +44,14 @@ class LoginPageState extends State<LoginPage> {
                 Column (
                   children: <Widget>[
                     Image.asset("assets/comico.png"),
-
-                    const SizedBox(height: 40),
-/*
-                    Text(
-                      "Log In",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w900,
-                        color: Color(0xffff3300),
-
-                      ),),
-
- */
-                  ],
-                ),
-                const SizedBox(height: 20),
-                const TextField(
-                    decoration: InputDecoration(
-                        hintText: "Email",
-                        contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.grey
-                          ),
-                        )
-                    )
-                ),
-                const SizedBox(height: 20),
-                const TextField(
-                    decoration: InputDecoration(
-                        hintText: "Password",
-                        contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.grey
-                          ),
-                        )
-                    )
-                ),
+                    const SizedBox(height: 40), 
+                    InputField(hintText: "Email", onChanged: (value) {}, icon: Icons.person),
+                
+                //const SizedBox(height: 20),
+                PasswordField(hintText: "Password", onChanged: (value) {},),
                 const SizedBox(height: 50),
+                RoundedButton(text: "LOG IN", press: () {}, color: Colors.deepOrange),
+                /*
                 Container(
                   padding: const EdgeInsets.only(top: 3, left: 3),
                   decoration:
@@ -109,6 +80,7 @@ class LoginPageState extends State<LoginPage> {
 
 
                 ),
+                */
                 const SizedBox(height: 10,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -132,13 +104,13 @@ class LoginPageState extends State<LoginPage> {
                 ),
               ],
             )
-
+],
 
         ),
 
 
       ),
-
+    ),
     );
   }
 }
