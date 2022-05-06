@@ -1,7 +1,13 @@
 import 'login.dart';
 import 'package:flutter/material.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
+  const SignupPage({Key? key}) : super(key: key);
+
+  @override
+  SignupPageState createState() => SignupPageState();
+}
+class SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +20,7 @@ class SignupPage extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios,
+          icon: const Icon(Icons.arrow_back_ios,
             size: 20,
             color: Colors.black,),
 
@@ -23,13 +29,13 @@ class SignupPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 40),
+            padding: const EdgeInsets.symmetric(horizontal: 40),
             width: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset("assets/comico.png"),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 Column(
                   children: <Widget>[
                     /*
@@ -42,12 +48,12 @@ class SignupPage extends StatelessWidget {
 
                       ),),
                     */
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
 
                   ],
                 ),
-                SizedBox(height: 20),
-                TextField(
+                const SizedBox(height: 20),
+                const TextField(
                     decoration: InputDecoration(
                         hintText: "Username",
                         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -58,8 +64,8 @@ class SignupPage extends StatelessWidget {
                         )
                     )
                 ),
-                SizedBox(height: 20),
-                TextField(
+                const SizedBox(height: 20),
+                const TextField(
                     decoration: InputDecoration(
                         hintText: "Email",
                         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -70,8 +76,8 @@ class SignupPage extends StatelessWidget {
                         )
                     )
                 ),
-                SizedBox(height: 20),
-                TextField(
+                const SizedBox(height: 20),
+                const TextField(
                     decoration: InputDecoration(
                         hintText: "Password",
                         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -82,8 +88,8 @@ class SignupPage extends StatelessWidget {
                         )
                     )
                 ),
-                SizedBox(height: 20),
-                TextField(
+                const SizedBox(height: 20),
+                const TextField(
                     decoration: InputDecoration(
                         hintText: "Confirm password",
                         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -94,15 +100,12 @@ class SignupPage extends StatelessWidget {
                         )
                     )
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 Container(
-                  padding: EdgeInsets.only(top: 3, left: 3),
+                  padding: const EdgeInsets.only(top: 3, left: 3),
                   decoration:
                   BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      border: Border(
-                      )
-
                   ),
                   child: MaterialButton(
                     minWidth: double.infinity,
@@ -113,7 +116,7 @@ class SignupPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(50),
 
                     ),
-                    child: Text(
+                    child: const Text(
                       "Sign Up", style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,
@@ -125,16 +128,16 @@ class SignupPage extends StatelessWidget {
 
 
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("You have already had an account?"),
+                    const Text("You have already had an account?"),
                     GestureDetector(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
                       },
-                      child: Text(
+                      child: const Text(
                           " Log In",
                           style: TextStyle(
                               fontWeight: FontWeight.w600,

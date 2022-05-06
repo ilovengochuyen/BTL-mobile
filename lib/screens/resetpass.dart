@@ -1,5 +1,6 @@
+
 import 'package:flutter/material.dart';
-import 'package:manga/screens/startScreen.dart';
+//import 'package:manga/screens/startScreen.dart';
 
 class resetPassword extends StatefulWidget {
   const resetPassword({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class _resetPasswordState extends State<resetPassword> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
               'assets/login.png',
@@ -29,7 +30,7 @@ class _resetPasswordState extends State<resetPassword> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       top: 100,
                     ),
 /*
@@ -84,7 +85,7 @@ class _resetPasswordState extends State<resetPassword> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 //crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
+                                children: <Widget> [
                                   Text('Reset Now', style: TextStyle(fontSize: 18)),
                                   Icon(
                                     Icons.refresh,
@@ -129,3 +130,4 @@ class _resetPasswordState extends State<resetPassword> {
     );
   }
 }
+

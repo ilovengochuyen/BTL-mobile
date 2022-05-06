@@ -16,7 +16,7 @@ void main() {
         'register': (context) => myRegister(),
         'forgot': (context) => resetPassword(),
         'signup': (context) => SignupPage(),
-        'start': (context) => startScreen(),
+        'start': (context) => StartScreen(),
       },
     ),
   );

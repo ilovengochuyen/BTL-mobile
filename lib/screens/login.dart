@@ -1,10 +1,16 @@
-import 'package:manga/screens/register.dart';
 import 'package:manga/screens/resetpass.dart';
 
-import 'startScreen.dart';
+//import 'startScreen.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  LoginPageState createState() => LoginPageState();
+}
+
+class LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +23,7 @@ class LoginPage extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_ios,
+          icon: const Icon(Icons.arrow_back_ios,
             size: 20,
             color: Colors.black,),
 
@@ -26,7 +32,7 @@ class LoginPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 40),
+            padding: const EdgeInsets.symmetric(horizontal: 40),
             height: MediaQuery.of(context).size.height - 50,
             width: double.infinity,
             child: Column (
@@ -36,7 +42,7 @@ class LoginPage extends StatelessWidget {
                   children: <Widget>[
                     Image.asset("assets/comico.png"),
 
-                    SizedBox(height: 40),
+                    const SizedBox(height: 40),
 /*
                     Text(
                       "Log In",
@@ -50,8 +56,8 @@ class LoginPage extends StatelessWidget {
  */
                   ],
                 ),
-                SizedBox(height: 20),
-                TextField(
+                const SizedBox(height: 20),
+                const TextField(
                     decoration: InputDecoration(
                         hintText: "Email",
                         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -62,8 +68,8 @@ class LoginPage extends StatelessWidget {
                         )
                     )
                 ),
-                SizedBox(height: 20),
-                TextField(
+                const SizedBox(height: 20),
+                const TextField(
                     decoration: InputDecoration(
                         hintText: "Password",
                         contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -74,26 +80,24 @@ class LoginPage extends StatelessWidget {
                         )
                     )
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 Container(
-                  padding: EdgeInsets.only(top: 3, left: 3),
+                  padding: const EdgeInsets.only(top: 3, left: 3),
                   decoration:
                   BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      border: Border(
-                      )
 
                   ),
                   child: MaterialButton(
                     minWidth: double.infinity,
                     height: 60,
                     onPressed: () {},
-                    color: Color(0xffff3300),
+                    color: const Color(0xffff3300),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
 
                     ),
-                    child: Text(
+                    child: const Text(
                       "LOG IN", style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,
@@ -105,17 +109,17 @@ class LoginPage extends StatelessWidget {
 
 
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Forget your password?",),
+                    const Text("Forget your password?",),
 
                     GestureDetector(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> resetPassword()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const resetPassword()));
                       },
-                      child: Text(
+                      child: const Text(
                           " Reset Now",
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
