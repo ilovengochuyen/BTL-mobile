@@ -2,7 +2,7 @@ import 'package:manga/screens/resetpass.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:manga/widgets/reusable_widget.dart';
-import 'package:manga/screens/home_screen.dart';
+import 'package:manga/screens/screens.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
