@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:manga/screens/home_screen.dart';
 import 'package:manga/widgets/reusable_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
@@ -69,9 +70,16 @@ class SignupPageState extends State<SignupPage> {
                       .createUserWithEmailAndPassword(
                           email: _emailTextController.text,
                           password: _passwordTextController.text)
-                      .then((value) {
-                    print("Created New Account");
-                    Navigator.push(context,
+                      .then((value) async {
+                        User? user = FirebaseAuth.instance.currentUser;
+
+                        await FirebaseFirestore.instance.collection("users").doc(user!.uid).set({
+                          'uid': user.uid,
+                          'email': _emailTextController.text,
+                          'password': _passwordTextController.text,
+                        });
+                        print("Created New Account " + user.uid);
+                        Navigator.push(context,
                         MaterialPageRoute(builder: (context) => HomeScreen()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
