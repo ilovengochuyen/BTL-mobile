@@ -53,7 +53,7 @@ class _resetPasswordState extends State<resetPassword> {
                       _emailTextController),
                       const SizedBox(height: 40,),
                       
-                      firebaseUIButton(context, "Reset Password", () {
+                      firebaseUIButton(context, 50,  "Reset Password", () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) => StartScreen()));
                       }),

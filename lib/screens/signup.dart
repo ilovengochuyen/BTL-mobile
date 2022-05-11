@@ -15,7 +15,7 @@ class SignupPageState extends State<SignupPage> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
   TextEditingController _userNameTextController = TextEditingController();
-  TextEditingController _confirmPasswordTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +31,6 @@ class SignupPageState extends State<SignupPage> {
           icon: const Icon(Icons.arrow_back_ios,
             size: 20,
             color: Colors.black,),
-
-
         ),
       ),
       body: SingleChildScrollView(
@@ -58,29 +56,26 @@ class SignupPageState extends State<SignupPage> {
                 ),
                 reusableTextField("Enter Password", Icons.lock_outlined, true,
                     _passwordTextController),
-                const SizedBox(
-                  height: 20,
-                ),
-                reusableTextField("Confirm Password", Icons.lock_outlined, true,
-                    _confirmPasswordTextController),
+
                 //Button Signup
                 const SizedBox(height: 40,),
-                firebaseUIButton(context, "Sign Up", () {
+                firebaseUIButton(context, 50, "Sign Up", () {
                   FirebaseAuth.instance
                       .createUserWithEmailAndPassword(
                           email: _emailTextController.text,
                           password: _passwordTextController.text)
                       .then((value) async {
-                        User? user = FirebaseAuth.instance.currentUser;
+                          User? user = FirebaseAuth.instance.currentUser;
 
-                        await FirebaseFirestore.instance.collection("users").doc(user!.uid).set({
-                          'uid': user.uid,
-                          'email': _emailTextController.text,
-                          'password': _passwordTextController.text,
-                        });
-                        print("Created New Account " + user.uid);
-                        Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                          await FirebaseFirestore.instance.collection("users").doc(user!.uid).set({
+                            'uid': user.uid,
+                            'username' : _userNameTextController.text,
+                            'email': _emailTextController.text,
+                            'password': _passwordTextController.text,
+                          });
+                          print("Created New Account " + user.uid);
+                          Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });

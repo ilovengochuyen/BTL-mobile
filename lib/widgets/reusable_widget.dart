@@ -1,3 +1,5 @@
+import 'dart:ffi';
+import 'package:manga/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 Image logoWidget(String imageName) {
@@ -40,15 +42,15 @@ TextField reusableTextField(String text, IconData icon, bool isPasswordType,
   );
 }
 
-Container firebaseUIButton(BuildContext context, String title, Function onTap) {
+Container firebaseUIButton(BuildContext context, double containerHeight,  String title, Function onTap) {
   return Container(
     width: MediaQuery.of(context).size.width,
-    height: 50,
+    height: containerHeight,
     margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
     decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
     child: ElevatedButton(
       onPressed: () {
-        onTap();
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
       },
       child: Text(
         title,
@@ -65,5 +67,74 @@ Container firebaseUIButton(BuildContext context, String title, Function onTap) {
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)))),
     ),
+  );
+}
+
+
+IconButton reusableButton (String buttonName, Icon icon, Function onTap){
+    return IconButton(
+      onPressed: () {
+        onTap();
+      }, 
+      icon: icon);
+
+}
+
+
+//button with icon 
+Container button2 (String buttonName, Icon icon, Function onTap) {
+  return Container(
+    width: 60,
+    height: 60,
+    child: Column(children: [
+      IconButton(
+      onPressed: () {
+        onTap();
+      }, 
+      icon: icon),
+      Text(
+        buttonName,
+        style: const TextStyle(
+            color: Colors.black, fontWeight: FontWeight.w500, fontSize: 10),
+      ),
+
+    ]),
+  );
+}
+
+//button with icon, text, row
+GestureDetector button3 (BuildContext context, String buttonName, Icon icon, Function onTap) {
+  return GestureDetector( 
+    onTap: (){
+      onTap();
+    },
+    child: Container(
+      width: MediaQuery.of(context).size.width,
+      height: 40,
+      padding: EdgeInsets.only(left: 10.0),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: Color.fromARGB(255, 194, 190, 190), width: 1.0,)
+      ),
+      ),
+      child: Row(children: [
+      icon,
+      SizedBox(width: 10,),
+      Container(
+      width: 100,
+      child: Text(
+        buttonName,
+        style: const TextStyle(
+            color: Colors.grey, fontWeight: FontWeight.w500, fontSize: 13),
+      ),
+      ),
+
+      SizedBox(width: 240,),
+      Icon(Icons.arrow_forward_ios,
+            size: 20,
+            color: Colors.black,),
+    ]),
+    ),
+    
   );
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:manga/screens/home_screen.dart';
+import 'package:manga/widgets/reusable_widget.dart';
 
 class UserProfile extends StatelessWidget {
 
@@ -77,47 +79,30 @@ class UserProfile extends StatelessWidget {
             ),
           ),
           Container(
-              padding: EdgeInsets.all(20),
-              color: Color(0xABF8EBE0),
+            color: Colors.black,
+            height: 35,
+            width: double.infinity,
+          ),
+          Container(
+              //padding: EdgeInsets.all(20),
+              color: Color.fromARGB(171, 252, 251, 251),
               child: Row(
                 children: <Widget> [
                   Column(
                     children: <Widget> [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(Icons.account_circle, size: 30),
-                          SizedBox(width: 4,),
-                          Text("User0001", style: TextStyle(fontWeight: FontWeight.w500))
-                        ],
-                      ),
-                      SizedBox(height: 4, width: 4,),
-                      Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(Icons.mail, size: 30),
-                            SizedBox(width: 4,),
-                            Text("user0001@gmail.com", style: TextStyle(fontWeight: FontWeight.w500))
-                          ]
-                      ),
-                      SizedBox(height: 4,),
-                      Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(Icons.circle_notifications, size: 30),
-                            SizedBox(width: 4,),
-                            Text("Thông báo", style: TextStyle(fontWeight: FontWeight.w500))
-                          ]
-                      ),
-                      SizedBox(height: 4,),
-                      Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(Icons.feedback, size: 30),
-                            SizedBox(width: 4,),
-                            Text("Bạn hỏi Comico trả lời", style: TextStyle(fontWeight: FontWeight.w500))
-                          ]
-                      ),
+                      button3(context, "Truyện theo dõi", Icon(Icons.trending_up, color: Colors.grey,), () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                        //
+                      }),    
+                      button3(context, "Thông báo", Icon(Icons.notifications_none, color: Colors.grey), () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                        //
+                      }),
+                      button3(context, "Cài đặt", Icon(Icons.settings, color: Colors.grey), () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                        //
+                      }),                  
+                      
                     ],
                   )
                 ],
@@ -175,11 +160,26 @@ class UserProfile extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  IconButton(onPressed: () {}, icon: Icon(Icons.home),),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.book)),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.account_balance)),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.account_circle), color: Colors.deepOrange,),
+                  // IconButton(onPressed: () {}, icon: Icon(Icons.home),),
+                  button2("Trang chủ", Icon(Icons.home), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                  }),
+                  //IconButton(onPressed: () {}, icon: Icon(Icons.book)),
+                  button2("Truyện tranh", Icon(Icons.book), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                  }),
+                  //IconButton(onPressed: () {}, icon: Icon(Icons.account_balance)), 
+                  button2("Tủ sách", Icon(Icons.account_balance), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                  }),
+                  //IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
+                  button2("Comicolours", Icon(Icons.edit), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                  }),
+                  //IconButton(onPressed: () {}, icon: Icon(Icons.account_circle), color: Colors.deepOrange,),
+                  button2("Cá nhân", Icon(Icons.account_circle), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                  }),
                 ],
               )
           )
@@ -189,35 +189,3 @@ class UserProfile extends StatelessWidget {
 
   }
 }
-/*
-Text("GXXXXXXXX",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "Roboto",
-                              fontSize: 20))
-
-
-          Container(
-            padding: EdgeInsets.all(10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-              children: <Widget>[
-                Column(
-                  children: <Widget> [
-                    Text ("Xu:",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),],
-                ),
-                Column(children: <Widget>[
-                  Text("Nạp xu", style: TextStyle(
-                    color: Colors.deepOrange,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Roboto",
-                  ))
-                ],)
-              ],
-            ),
-          )
- */
