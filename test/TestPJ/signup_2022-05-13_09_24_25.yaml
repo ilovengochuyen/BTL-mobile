@@ -1,0 +1,473 @@
+id: b2f2738f3225e7e04c6eed
+created: 2022-05-13T09:22:30.101Z
+projectId: Tu0gI1NloES0CCpVLgZMug
+projectName: My first Project
+owner: 19020067 Tr§n ViÇt Tùng
+protocol: 1
+tests:
+  - id: fe12f700edfbc0bf9f9f9b
+    name: signup
+    description: test signup
+    platform: Android
+    type: Mobile
+    driverType: Appium_Android
+    version: "0.1"
+    creationDate: 2022-05-13T09:22:30.101Z
+    modificationDate: 2022-05-13T09:24:25.239Z
+    settings:
+      appId: Ay1_-4vbdUyamFDN9RwYHg
+      automationAssistant: true
+      stepSleepTime: 500
+      stepTimeout: 15000
+      stepSleepTiming: Before
+      stepFailureBehaviorType: Abort
+      stepTakeScreenshotConditionType: Failure
+    application:
+      id: Ay1_-4vbdUyamFDN9RwYHg
+      name: manga signup
+      platform: Android
+      androidPackage: com.uzair657.oms
+      androidActivity: com.uzair657.oms.MainActivity
+    steps:
+      - id: fb835b13db064b7eded24f
+        comments: Clear application data and restart (Auto-generated)
+        enabled: true
+        invertResult: false
+        order: 1
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 1b89acc3-5003-4ae6-a8c1-c1732e09ef45
+        parameterMaps: []
+        conditions: []
+        validations: []
+        contexts: []
+      - id: 3bab581ca9a6d9b2a24a0c
+        comments: ""
+        enabled: true
+        order: 2
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 02d572b2-d610-4700-9ad3-40076ddb9807
+        parameterMaps: []
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: 922ad6c47ff614122e513f
+      - id: 600f122db6af16cea640f0
+        comments: ""
+        enabled: true
+        order: 3
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 02d572b2-d610-4700-9ad3-40076ddb9807
+        parameterMaps: []
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: d0a2d9b6c7151f6bb19cd9
+      - id: c37f6a01b7f80c88367f60
+        comments: ""
+        enabled: true
+        order: 4
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 6f94fdaa-0041-4265-b73b-ecfcbe702d66
+        parameterMaps:
+          - direction: Input
+            name: keys
+            value: a
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: d0a2d9b6c7151f6bb19cd9
+      - id: 3beabafe227a429aa61e3d
+        comments: ""
+        enabled: true
+        order: 5
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 02d572b2-d610-4700-9ad3-40076ddb9807
+        parameterMaps: []
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: da75ccb7100bbff854f5f9
+      - id: 960c88b05ca69d4af3dbd8
+        comments: ""
+        enabled: true
+        order: 6
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 6f94fdaa-0041-4265-b73b-ecfcbe702d66
+        parameterMaps:
+          - direction: Input
+            name: keys
+            value: ab@gmail.com
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: da75ccb7100bbff854f5f9
+      - id: 669a864cea8be887ff4114
+        comments: ""
+        enabled: true
+        order: 7
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 02d572b2-d610-4700-9ad3-40076ddb9807
+        parameterMaps: []
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: ef7546808f746327cfa55f
+      - id: 80d553f92746b6fe8d77fa
+        comments: ""
+        enabled: true
+        order: 8
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 6f94fdaa-0041-4265-b73b-ecfcbe702d66
+        parameterMaps:
+          - direction: Input
+            name: keys
+            value: "123456"
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: ef7546808f746327cfa55f
+      - id: 76a97b982ecb33fae92295
+        comments: ""
+        enabled: true
+        order: 9
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 02d572b2-d610-4700-9ad3-40076ddb9807
+        parameterMaps: []
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: 9fffba6b1f80c61aa5769a
+      - id: 31731dd349bb5b3aa5d785
+        comments: ""
+        enabled: true
+        order: 10
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 6f94fdaa-0041-4265-b73b-ecfcbe702d66
+        parameterMaps:
+          - direction: Input
+            name: keys
+            value: ab@gmail.com
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: 9fffba6b1f80c61aa5769a
+      - id: c2177c3c029d389e993aca
+        comments: ""
+        enabled: true
+        order: 11
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 02d572b2-d610-4700-9ad3-40076ddb9807
+        parameterMaps: []
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: 871242d653f100e28fdda0
+      - id: 9df67c0ca7bb69461e136a
+        comments: ""
+        enabled: true
+        order: 12
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 05d49852-244d-47f9-be97-5217c86f6a1d
+        parameterMaps:
+          - direction: Input
+            name: x
+            value: "238"
+          - direction: Input
+            name: y
+            value: "1869"
+          - direction: Input
+            name: fingers
+            value: "1"
+          - direction: Input
+            name: duration
+            value: "100"
+        conditions: []
+        validations: []
+        contexts: []
+      - id: c76f54e9fce41624993a4e
+        comments: ""
+        enabled: true
+        order: 13
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 02d572b2-d610-4700-9ad3-40076ddb9807
+        parameterMaps: []
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: 961efa5f67a7c1dfd46c5a
+      - id: c1992c1f51fb861ad86806
+        comments: ""
+        enabled: true
+        order: 14
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 02d572b2-d610-4700-9ad3-40076ddb9807
+        parameterMaps: []
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: 4c0a1253532a130c9d4fa7
+    parameters: []
+    tags: []
+auxTests: []
+elements:
+  - id: 4c0a1253532a130c9d4fa7
+    name: user profile
+    description: ""
+    type:
+      id: jUwODgyNjAyNzk2NTk4NDY
+      name: android.view.View
+      source: System
+    locators:
+      - name: XPATH
+        value: //android.view.View[@content-desc = ' user profile']
+        priority: 0
+      - name: XPATH
+        value: //android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View/android.view.View
+        priority: 1
+      - name: XPATH
+        value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]
+        priority: 2
+  - id: 961efa5f67a7c1dfd46c5a
+    name: Sign Up
+    description: ""
+    type:
+      id: jUwODgyNjAyNzk2NTk4NDU
+      name: android.widget.Button
+      source: System
+    locators:
+      - name: XPATH
+        value: //android.widget.Button[@content-desc = 'Sign Up']
+        priority: 0
+      - name: XPATH
+        value: //android.widget.ScrollView/android.widget.Button
+        priority: 1
+      - name: XPATH
+        value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]/android.widget.Button[1]
+        priority: 2
+  - id: 871242d653f100e28fdda0
+    name: ANDROID.VIEW.VIEW
+    description: ""
+    type:
+      id: jUwODgyNjAyNzk2NTk4NDY
+      name: android.view.View
+      source: System
+    locators:
+      - name: XPATH
+        value: //android.widget.FrameLayout/android.view.View[1]/android.view.View/android.view.View
+        priority: 0
+      - name: XPATH
+        value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]
+        priority: 1
+  - id: 9fffba6b1f80c61aa5769a
+    name: Enter Email Id1
+    description: ""
+    type:
+      id: jUwODgyNjAyNzk2NTk3MTM
+      name: android.widget.EditText
+      source: System
+    locators:
+      - name: XPATH
+        value: //android.widget.EditText[@text = 'Enter Email Id']
+        priority: 0
+      - name: XPATH
+        value: //android.widget.EditText[2]
+        priority: 1
+      - name: XPATH
+        value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]/android.widget.EditText[2]
+        priority: 2
+  - id: ef7546808f746327cfa55f
+    name: Enter Password
+    description: ""
+    type:
+      id: jUwODgyNjAyNzk2NTk3MTM
+      name: android.widget.EditText
+      source: System
+    locators:
+      - name: XPATH
+        value: //android.widget.EditText[@text = 'Enter Password']
+        priority: 0
+      - name: XPATH
+        value: //android.widget.EditText[3]
+        priority: 1
+      - name: XPATH
+        value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.widget.ScrollView[1]/android.widget.EditText[3]
+        priority: 2
+  - id: da75ccb7100bbff854f5f9
+    name: Enter Email Id
+    description: ""
+    type:
+      id: jUwODgyNjAyNzk2NTk3MTM
+      name: android.widget.EditText
+      source: System
+    locators:
+      - name: XPATH
+        value: //android.widget.EditText[@text = 'Enter Email Id']
+        priority: 0
+      - name: XPATH
+        value: //android.widget.EditText[2]
+        priority: 1
+      - name: XPATH
+        value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.widget.EditText[2]
+        priority: 2
+  - id: d0a2d9b6c7151f6bb19cd9
+    name: Enter UserName
+    description: ""
+    type:
+      id: jUwODgyNjAyNzk2NTk3MTM
+      name: android.widget.EditText
+      source: System
+    locators:
+      - name: XPATH
+        value: //android.widget.EditText[1]
+        priority: 0
+      - name: XPATH
+        value: //android.widget.EditText[@text = 'Enter UserName']
+        priority: 1
+      - name: XPATH
+        value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.widget.EditText[1]
+        priority: 2
+  - id: 922ad6c47ff614122e513f
+    name: SIGN UP
+    description: ""
+    type:
+      id: jUwODgyNjAyNzk2NTk4NDU
+      name: android.widget.Button
+      source: System
+    locators:
+      - name: XPATH
+        value: //android.widget.Button[@content-desc = 'SIGN UP']
+        priority: 0
+      - name: XPATH
+        value: //android.widget.Button[2]
+        priority: 1
+      - name: XPATH
+        value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.widget.Button[2]
+        priority: 2
+projectParameters: []
+addons: []
