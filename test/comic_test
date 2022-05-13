@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:integration_test/integration_test.dart';
+import 'main.dart' as app;
+
+void main() {
+  group('Testing Comics', () {
+    final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized() as IntegrationTestWidgetsFlutterBinding;
+
+    binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
+
+    testWidgets('User', (tester) async {
+      app.main();
+      await tester.pumpAndSettle();
+
+      
+      final titleTextFinder1 = find.byKey(Key('1-name'));
+      final overviewTextFinder1 = find.byKey(Key('1-author'));
+      final releaseTextFinder1 = find.byKey(Key('1-genre'));
+      // checking widget present or not
+      expect(titleTextFinder1, findsOneWidget);
+      expect(overviewTextFinder1, findsOneWidget);
+      expect(releaseTextFinder1, findsOneWidget);
+
+      
+      expect((titleTextFinder1.evaluate().single.widget as Text).data, 'One Piece');
+      expect((overviewTextFinder1.evaluate().single.widget as Text).data, 'Oda');
+      expect((releaseTextFinder1.evaluate().single.widget as Text).data, 'Action');
+
+      
+      final titleTextFinder2 = find.byKey(Key('2-name'));
+      final overviewTextFinder2 = find.byKey(Key('2-author'));
+      final releaseTextFinder2 = find.byKey(Key('2-genre'));
+      
+      expect(titleTextFinder2, findsOneWidget);
+      expect(overviewTextFinder2, findsOneWidget);
+      expect(releaseTextFinder2, findsOneWidget);
+
+     
+      expect((titleTextFinder2.evaluate().single.widget as Text).data, 'Bleach');
+      expect((overviewTextFinder2.evaluate().single.widget as Text).data, 'Kubo');
+      expect((releaseTextFinder2.evaluate().single.widget as Text).data, 'Action');
+    });
+  });
+}

@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:integration_test/integration_test.dart';
+import 'main.dart' as app;
+
+void main() {
+  group('Testing Users', () {
+    final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized() as IntegrationTestWidgetsFlutterBinding;
+
+    binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
+
+    testWidgets('User', (tester) async {
+      app.main();
+      await tester.pumpAndSettle();
+
+      
+      final nameTextFinder1 = find.byKey(Key('1-name'));
+      final birthdayTextFinder1 = find.byKey(Key('1-birthday'));
+      final genreTextFinder1 = find.byKey(Key('1-genre'));
+      // checking widget present or not
+      expect(nameTextFinder1, findsOneWidget);
+      expect(birthdayTextFinder1, findsOneWidget);
+      expect(genreTextFinder1, findsOneWidget);
+
+      
+      expect((nameTextFinder1.evaluate().single.widget as Text).data, 'DNV');
+      expect((birthdayTextFinder1.evaluate().single.widget as Text).data, '2001-02-06');
+      expect((genreTextFinder1.evaluate().single.widget as Text).data, 'Female');
+
+      
+      final nameTextFinder2 = find.byKey(Key('2-name'));
+      final birthdayTextFinder2 = find.byKey(Key('2-birthday'));
+      final genreTextFinder2 = find.byKey(Key('2-genre'));
+      
+      expect(nameTextFinder2, findsOneWidget);
+      expect(birthdayTextFinder2, findsOneWidget);
+      expect(genreTextFinder2, findsOneWidget);
+
+     
+      expect((nameTextFinder2.evaluate().single.widget as Text).data, 'FFF');
+      expect((birthdayTextFinder2.evaluate().single.widget as Text).data, '1999-01-02');
+      expect((genreTextFinder2.evaluate().single.widget as Text).data, 'Male');
+    });
+  });
+}
