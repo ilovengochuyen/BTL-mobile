@@ -27,3 +27,9 @@ Enjoy!
 
 ## Create testing data
 
+## Demo applications:
+![image](https://user-images.githubusercontent.com/63278123/168248184-9fdfff8a-351c-4b60-afab-5dcebb4eb3af.png)![image](https://user-images.githubusercontent.com/63278123/168248252-221c9c98-5777-407c-a8ea-8415ccb8de80.png)
+![image](https://user-images.githubusercontent.com/63278123/168248296-4fd4b250-fec3-4a14-ab37-545835042332.png)
+![image](https://user-images.githubusercontent.com/63278123/168248315-d5d3b587-f16a-4029-a34b-1b03a47c6b61.png)
+
+
