@@ -138,3 +138,33 @@ GestureDetector button3 (BuildContext context, String buttonName, Icon icon, Fun
     
   );
 }
+
+//square button 
+Container squareButton(double containerWidth, double containerHeight,  String title, bool isRed, Function onTap) {
+  return Container(
+    width: containerWidth,
+    height: containerHeight,
+    //margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+    //decoration: BoxDecoration(borderRadius: BorderRadius.circular(0)),
+    child: ElevatedButton(
+      onPressed: () {
+        onTap();
+      },
+      child: Text(
+        title,
+        style:  TextStyle(
+            color: isRed
+            ? Colors.white
+            : Colors.grey, 
+            fontWeight: FontWeight.w500, fontSize: 13),
+      ),
+      style: ButtonStyle(
+          backgroundColor: isRed
+            ? MaterialStateProperty.all<Color>(Colors.red)
+            : MaterialStateProperty.all<Color>(Colors.white),
+           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+               RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)))
+              ),
+    ),
+  );
+}

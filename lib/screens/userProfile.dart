@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:manga/screens/startScreen.dart';
 import 'package:manga/screens/home_screen.dart';
 import 'package:manga/widgets/reusable_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class UserProfile extends StatelessWidget {
 
@@ -11,7 +13,7 @@ class UserProfile extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Container(
-            color: Colors.deepOrange,
+            color: Colors.red,
             height: MediaQuery.of(context).size.height * 0.3,
             width: double.infinity,
             child: Column(
@@ -34,7 +36,7 @@ class UserProfile extends StatelessWidget {
                                 backgroundColor: Colors.white,
                                 child: CircleAvatar(
                                   maxRadius: 70,
-                                  backgroundImage: AssetImage("assets/userimage.png"),)
+                                  backgroundImage: AssetImage("assets/uerprofile.png"),)
                             ),
 
                             Positioned(
@@ -52,7 +54,11 @@ class UserProfile extends StatelessWidget {
                                       color: Colors.grey,
                                     ),
 
-                                    child: Icon(Icons.edit, color: Colors.white,))),
+                                    child: //Icon(Icons.edit, color: Colors.white,)
+                                    reusableButton("setting", Icon(Icons.edit, color: Color.fromARGB(255, 22, 20, 20),), (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                                    })
+                                    )),
                           ],
 
                         ),
@@ -79,9 +85,24 @@ class UserProfile extends StatelessWidget {
             ),
           ),
           Container(
-            color: Colors.black,
+            color: Color.fromARGB(255, 36, 35, 35),
             height: 35,
             width: double.infinity,
+            
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                squareButton(180, 25, "Lịch sử", false,  () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                    
+                }),
+                SizedBox(width: 10,),
+                squareButton(180, 25, "Nạp xu", true,  () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                    
+                }),
+              ],
+            ),
           ),
           Container(
               //padding: EdgeInsets.all(20),
@@ -112,25 +133,32 @@ class UserProfile extends StatelessWidget {
             padding: EdgeInsets.only(top: 60, left: 20, right: 20),
             decoration:
             BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border(
-                )
+                borderRadius: BorderRadius.circular(0),
+                
 
             ),
             child: MaterialButton(
-              minWidth: double.infinity,
+              minWidth: 200,
               height: 40,
-              onPressed: () {},
-              color: Color(0xffff3300),
+              onPressed: () {
+                  FirebaseAuth.instance.signOut().then((value) => {
+                    print("Sign out"),
+                    Navigator.push(context, 
+                      MaterialPageRoute(builder: (context) => StartScreen())),
+                    });
+              },
+              color: Color.fromARGB(255, 216, 210, 208),
+              
+              //border:  Border.all(color: Color.fromARGB(255, 104, 101, 101)),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(0),
-
+                borderRadius: BorderRadius.circular(10),
+                side: BorderSide(color: Color.fromARGB(255, 104, 101, 101))
               ),
               child: Text(
-                "Nạp xu", style: TextStyle(
+                "Đổi tài khoản", style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 18,
-                color: Colors.white,
+                color: Color.fromARGB(255, 104, 101, 101),
               ),
               ),
 
