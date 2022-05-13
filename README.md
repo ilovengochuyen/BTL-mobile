@@ -32,4 +32,6 @@ Enjoy!
 ![image](https://user-images.githubusercontent.com/63278123/168248296-4fd4b250-fec3-4a14-ab37-545835042332.png)
 ![image](https://user-images.githubusercontent.com/63278123/168248315-d5d3b587-f16a-4029-a34b-1b03a47c6b61.png)
 
+## Testing
+Use Unit Testing and Widget Testing of Flutter
 
