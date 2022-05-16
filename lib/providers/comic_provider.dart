@@ -18,9 +18,10 @@ class ComicProvider with ChangeNotifier {
   }
 
 
+  /**********************************************
+  **********List Newest Comic Model*************
+   *************************************************/
 
-
-  /*List Newest Comic Model*/
   List<ComicModel> newestComicList = [];
   fatchNewestComicData() async {
     List<ComicModel> newList = [];
@@ -40,7 +41,32 @@ class ComicProvider with ChangeNotifier {
     return newestComicList;
   }
 
-  /*Search*/
+  /**********************************************
+   **********List Hottest Comic Model*************
+   *************************************************/
+
+  List<ComicModel> hottestComicList = [];
+  fatchHottestComicData() async {
+    List<ComicModel> newList = [];
+    QuerySnapshot value = await FirebaseFirestore.instance.collection("HottestComic").get();
+
+    value.docs.forEach((element) {
+      print(element.data());
+      comicModels(element);
+      newList.add(comicModel);
+    },
+    );
+    hottestComicList = newList;
+    notifyListeners();
+  }
+
+  List<ComicModel> get getHottestComicDataList {
+    return hottestComicList;
+  }
+
+  /**********************************************
+   **********Search*************
+   *************************************************/
   List<ComicModel> get getAllSearchItem {
     return search;
   }
