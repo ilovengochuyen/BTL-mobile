@@ -275,7 +275,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
               backgroundColor: Colors.white,
               child: IconButton(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => SearchPage(search: comicProvider.search,),),);
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => SearchPage(search: comicProvider.getAllSearchItem,),),);
                 },
                 icon: const Icon(Icons.search, size: 17, color: Colors.black),
               ),
