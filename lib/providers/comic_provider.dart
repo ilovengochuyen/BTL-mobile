@@ -65,6 +65,29 @@ class ComicProvider with ChangeNotifier {
   }
 
   /**********************************************
+   **********List Action Comic Model*************
+   *************************************************/
+
+  List<ComicModel> actionComicList = [];
+  fatchActionComicData() async {
+    List<ComicModel> newList = [];
+    QuerySnapshot value = await FirebaseFirestore.instance.collection("ActionComic").get();
+
+    value.docs.forEach((element) {
+      print(element.data());
+      comicModels(element);
+      newList.add(comicModel);
+    },
+    );
+    actionComicList = newList;
+    notifyListeners();
+  }
+
+  List<ComicModel> get getActionComicDataList {
+    return actionComicList;
+  }
+
+  /**********************************************
    **********Search*************
    *************************************************/
   List<ComicModel> get getAllSearchItem {
