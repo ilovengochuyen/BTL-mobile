@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:manga/screens/comic_home_screen.dart';
 import 'package:manga/screens/startScreen.dart';
 import 'package:manga/screens/home_screen.dart';
 import 'package:manga/widgets/reusable_widget.dart';
@@ -190,7 +191,7 @@ class UserProfile extends StatelessWidget {
                 children: [
                   // IconButton(onPressed: () {}, icon: Icon(Icons.home),),
                   button2("Trang chủ", Icon(Icons.home), () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> ComicHomeScreen()));
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.book)),
                   button2("Truyện tranh", Icon(Icons.book), () {
