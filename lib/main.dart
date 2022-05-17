@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:manga/providers/chapter_provider.dart';
 import 'package:manga/providers/comic_provider.dart';
 import 'package:manga/screens/screens.dart';
 import 'package:provider/provider.dart';
@@ -16,8 +17,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ComicProvider>(
-        create: (context)=>ComicProvider(),
+    return MultiProvider(providers: [
+      ChangeNotifierProvider<ComicProvider>(
+        create: (context)=>ComicProvider(),),
+      ChangeNotifierProvider<ChapterProvider>(
+        create: (context)=>ChapterProvider(),),
+    ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           initialRoute: 'start',
