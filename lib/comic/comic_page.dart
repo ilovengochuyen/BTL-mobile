@@ -29,7 +29,7 @@ class _ComicPageState extends State<ComicPage> {
     chapterProvider = Provider.of(context);
     //ListView(
     // children: [
-    return widget.name == "JujutsuKaisen" ? Column(
+    return widget.name == "Chú thuật" ? Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: chapterProvider.getJujutsuKaisenList.map((chapterData) {
         print(chapterData);
