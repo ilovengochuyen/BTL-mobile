@@ -23,12 +23,12 @@ class MyApp extends StatelessWidget {
           initialRoute: 'start',
           title: 'manga',
           routes: {
-            'login': (context) => LoginPage(),
-            'register': (context) => myRegister(),
-            'forgot': (context) => resetPassword(),
-            'signup': (context) => SignupPage(),
-            'start': (context) => StartScreen(),
-            'comic_home_screen': (context) => ComicHomeScreen(),
+            'login': (context) => const LoginPage(),
+            'register': (context) => const myRegister(),
+            'forgot': (context) => const resetPassword(),
+            'signup': (context) => const SignupPage(),
+            'start': (context) => const StartScreen(),
+            'comic_home_screen': (context) => const ComicHomeScreen(),
           },
         )
         );

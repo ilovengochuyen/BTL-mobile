@@ -12,7 +12,7 @@ class _myRegisterState extends State<myRegister> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
               'assets/register.png',
@@ -28,7 +28,7 @@ class _myRegisterState extends State<myRegister> {
                 onPressed: () {
                   Navigator.pushNamed(context, 'login');
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_back_ios_rounded,
                   color: Colors.white,
                 ),
@@ -39,7 +39,7 @@ class _myRegisterState extends State<myRegister> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'COMICO',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -65,8 +65,8 @@ class _myRegisterState extends State<myRegister> {
                             Navigator.pushNamed(context, 'login');
                           },
                           style: ElevatedButton.styleFrom(
-                            maximumSize: Size(341.0, 90.0),
-                            minimumSize: Size(341.0, 60.0),
+                            maximumSize: const Size(341.0, 90.0),
+                            minimumSize: const Size(341.0, 60.0),
                             primary: Colors.red,
                             shape: StadiumBorder(),
                           ),
@@ -89,7 +89,7 @@ class _myRegisterState extends State<myRegister> {
                             onPressed: () {
                               Navigator.pushNamed(context, 'forgot');
                             },
-                            child: Text(
+                            child: const Text(
                               'Register',
                               style: TextStyle(color: Colors.white),
                             ),

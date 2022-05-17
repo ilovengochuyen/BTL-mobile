@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:manga/screens/comic_home_screen.dart';
 import 'package:manga/screens/startScreen.dart';
@@ -22,7 +22,7 @@ class UserProfile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.only(left: 110, right: 30, top: 40),
+                  padding: const EdgeInsets.only(left: 110, right: 30, top: 40),
                   child: Row (
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget> [
@@ -32,7 +32,7 @@ class UserProfile extends StatelessWidget {
                         child: Stack(
                           fit: StackFit.expand,
                           children: [
-                            CircleAvatar(
+                            const CircleAvatar(
                                 maxRadius: 75,
                                 backgroundColor: Colors.white,
                                 child: CircleAvatar(
@@ -56,8 +56,8 @@ class UserProfile extends StatelessWidget {
                                     ),
 
                                     child: //Icon(Icons.edit, color: Colors.white,)
-                                    reusableButton("setting", Icon(Icons.edit, color: Color.fromARGB(255, 22, 20, 20),), (){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                                    reusableButton("setting", const Icon(Icons.edit, color: Color.fromARGB(255, 22, 20, 20),), (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                                     })
                                     )),
                           ],
@@ -76,17 +76,11 @@ class UserProfile extends StatelessWidget {
             ),
 
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: new Text(
-              "Xu",
-              style: TextStyle(
-                  fontSize: 18, fontWeight: FontWeight.w900
-              ),
-            ),
-          ),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text( "Xu", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900),),),
           Container(
-            color: Color.fromARGB(255, 36, 35, 35),
+            color: const Color.fromARGB(255, 36, 35, 35),
             height: 35,
             width: double.infinity,
             
@@ -94,12 +88,12 @@ class UserProfile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 squareButton(180, 25, "Lịch sử", false,  () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                     
                 }),
-                SizedBox(width: 10,),
+                const SizedBox(width: 10,),
                 squareButton(180, 25, "Nạp xu", true,  () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                     
                 }),
               ],
@@ -107,21 +101,21 @@ class UserProfile extends StatelessWidget {
           ),
           Container(
               //padding: EdgeInsets.all(20),
-              color: Color.fromARGB(171, 252, 251, 251),
+              color: const Color.fromARGB(171, 252, 251, 251),
               child: Row(
                 children: <Widget> [
                   Column(
                     children: <Widget> [
-                      button3(context, "Truyện theo dõi", Icon(Icons.trending_up, color: Colors.grey,), () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                      button3(context, "Truyện theo dõi", const Icon(Icons.trending_up, color: Colors.grey,), () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                         //
                       }),    
-                      button3(context, "Thông báo", Icon(Icons.notifications_none, color: Colors.grey), () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                      button3(context, "Thông báo", const Icon(Icons.notifications_none, color: Colors.grey), () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                         //
                       }),
-                      button3(context, "Cài đặt", Icon(Icons.settings, color: Colors.grey), () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                      button3(context, "Cài đặt", const Icon(Icons.settings, color: Colors.grey), () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                         //
                       }),                  
                       
@@ -131,7 +125,7 @@ class UserProfile extends StatelessWidget {
               )
           ),
           Container(
-            padding: EdgeInsets.only(top: 60, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 60, left: 20, right: 20),
             decoration:
             BoxDecoration(
                 borderRadius: BorderRadius.circular(0),
@@ -145,17 +139,17 @@ class UserProfile extends StatelessWidget {
                   FirebaseAuth.instance.signOut().then((value) => {
                     print("Sign out"),
                     Navigator.push(context, 
-                      MaterialPageRoute(builder: (context) => StartScreen())),
+                      MaterialPageRoute(builder: (context) => const StartScreen())),
                     });
               },
-              color: Color.fromARGB(255, 216, 210, 208),
+              color: const Color.fromARGB(255, 216, 210, 208),
               
               //border:  Border.all(color: Color.fromARGB(255, 104, 101, 101)),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
-                side: BorderSide(color: Color.fromARGB(255, 104, 101, 101))
+                side: const BorderSide(color: Color.fromARGB(255, 104, 101, 101))
               ),
-              child: Text(
+              child: const Text(
                 "Đổi tài khoản", style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 18,
@@ -172,17 +166,17 @@ class UserProfile extends StatelessWidget {
 
       ),
       bottomNavigationBar: Container(
-          padding: EdgeInsets.symmetric(vertical: 14,),
+          padding: const EdgeInsets.symmetric(vertical: 14,),
           decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(40),
                 topRight: Radius.circular(40),
               ),
               boxShadow: [BoxShadow(
-                offset: Offset(0, -15),
+                offset: const Offset(0, -15),
                 blurRadius: 20,
-                color: Color(0xFFDADADA).withOpacity(0.15),
+                color: const Color(0xFFDADADA).withOpacity(0.15),
               )]
           ),
           child: SafeArea(
@@ -190,24 +184,24 @@ class UserProfile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   // IconButton(onPressed: () {}, icon: Icon(Icons.home),),
-                  button2("Trang chủ", Icon(Icons.home), () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> ComicHomeScreen()));
+                  button2("Trang chủ", const Icon(Icons.home), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.book)),
-                  button2("Truyện tranh", Icon(Icons.book), () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                  button2("Truyện tranh", const Icon(Icons.book), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.account_balance)), 
-                  button2("Tủ sách", Icon(Icons.account_balance), () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                  button2("Tủ sách", const Icon(Icons.account_balance), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
-                  button2("Comicolours", Icon(Icons.edit), () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                  button2("Comicolours", const Icon(Icons.edit), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.account_circle), color: Colors.deepOrange,),
-                  button2("Cá nhân", Icon(Icons.account_circle), () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+                  button2("Cá nhân", const Icon(Icons.account_circle, color: Colors.deepOrange), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> UserProfile()));
                   }),
                 ],
               )

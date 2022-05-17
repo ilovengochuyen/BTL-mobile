@@ -1,8 +1,9 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:manga/screens/startScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:manga/screens/screens.dart';
-
+/*
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -69,3 +70,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+*/

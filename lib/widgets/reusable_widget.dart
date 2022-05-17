@@ -2,6 +2,8 @@ import 'dart:ffi';
 import 'package:manga/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../screens/comic_home_screen.dart';
+
 Image logoWidget(String imageName) {
   return Image.asset(
     imageName,
@@ -50,7 +52,7 @@ Container firebaseUIButton(BuildContext context, double containerHeight,  String
     decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
     child: ElevatedButton(
       onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
       },
       child: Text(
         title,
