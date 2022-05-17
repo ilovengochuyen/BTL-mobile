@@ -5,12 +5,16 @@ import 'package:manga/model/ChapterModel.dart';
 
 class ChapterProvider with ChangeNotifier {
   List<ChapterModel> chapterList = [];
-  ChapterModel chapterModel = new ChapterModel(image: ' ', name: ' ', description: '');
+  ChapterModel chapterModel = new ChapterModel(image: ' ', name: ' ', description: ' ');
 
   fatchChapterData() async {
     List<ChapterModel> newList = [];
 
-    QuerySnapshot value = await FirebaseFirestore.instance.collection("NewestComic").get();
+    QuerySnapshot value = await FirebaseFirestore.instance
+        .collection("NewestComic")
+        .doc('8J578CxP1nO6Aqf6aWvM')
+        .collection('Chapter 1')
+        .get();
     value.docs.forEach((element) {
       print(element.data());
       chapterModel = ChapterModel(
