@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:manga/screens/startScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:manga/screens/screens.dart';
+import 'package:manga/providers/UserID.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,8 +12,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String data = "a"; 
   @override
+  
+
   Widget build(BuildContext context) {
+
+    final userProfile = Provider.of<UserProvider>(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -38,16 +44,31 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 50,
                 ),
                   GestureDetector(
-                    onTap: (){
-                      FirebaseAuth.instance.signOut().then((value) => {
-                        print("Sign out"),
+                    onTap: () {
                         Navigator.push(context, 
-                          MaterialPageRoute(builder: (context) => UserProfile())),
-                      });
+                          MaterialPageRoute(builder: (context) => UserProfile()));
                       //Navigator.push(context, MaterialPageRoute(builder: (context)=> const resetPassword()));
                     },
                     child: const Text(
                         " user profile",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: Color(0xffff3300)
+                        )),
+
+                  ),
+                const SizedBox(
+                  height: 50,
+                ),                  GestureDetector(
+                    onTap: (){
+                      //userProfile.setUser("12334");
+                          print("UseId: ${userProfile.getUser()}")  ;
+
+                      //Navigator.push(context, MaterialPageRoute(builder: (context)=> const resetPassword()));
+                    },
+                    child: const Text(
+                        " userID",
                         style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,

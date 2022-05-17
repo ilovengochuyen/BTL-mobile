@@ -50,7 +50,7 @@ Container firebaseUIButton(BuildContext context, double containerHeight,  String
     decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
     child: ElevatedButton(
       onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+        onTap();
       },
       child: Text(
         title,

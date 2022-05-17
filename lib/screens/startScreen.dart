@@ -48,6 +48,7 @@ class StartScreenState extends State<StartScreen> {
                 color: Colors.deepOrange,
                 textColor: Colors.white,
                 press: () {Navigator.pushNamed(context, 'login');
+                      
                 },
               ),
               RoundedButton(

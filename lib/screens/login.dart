@@ -1,8 +1,11 @@
-import 'package:manga/screens/resetpass.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:manga/widgets/reusable_widget.dart';
 import 'package:manga/screens/screens.dart';
+import 'package:manga/providers/UserID.dart';
+import 'package:provider/provider.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -14,8 +17,12 @@ class LoginPage extends StatefulWidget {
 class LoginPageState extends State<LoginPage> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+
+    final userProfile = Provider.of<UserProvider>(context);
+      
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
@@ -61,7 +68,12 @@ class LoginPageState extends State<LoginPage> {
                           email: _emailTextController.text,
                           password: _passwordTextController.text)
                       .then((value) {
-                    Navigator.push(context,
+                        // ignore: unused_local_variable
+                        //String value = toString(FirebaseAuth.instance.currentUser?.uid);
+                        print(FirebaseAuth.instance.currentUser?.uid);
+                        userProfile.setUser("${FirebaseAuth.instance.currentUser?.uid}");
+                        print("UserID: ${userProfile.getUser()}");
+                        Navigator.push(context,
                         MaterialPageRoute(builder: (context) => HomeScreen()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
