@@ -29,7 +29,7 @@ class _ComicPageState extends State<ComicPage> {
     chapterProvider = Provider.of(context);
     //ListView(
     // children: [
-    return Column(
+    return widget.name == "JujutsuKaisen" ? Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: chapterProvider.getJujutsuKaisenList.map((chapterData) {
         print(chapterData);
@@ -43,7 +43,28 @@ class _ComicPageState extends State<ComicPage> {
               MaterialPageRoute(builder: (context) => ChapterPages(name: chapterData.name, chapterPages: chapterData.chapterPage),),);
           },);
       }).toList(),
-    );
+    ) : Container();
+  }
+
+  Widget _buildDoraemonChapters(context) {
+    chapterProvider = Provider.of(context);
+    //ListView(
+    // children: [
+    return widget.name == "Doraemon" ? Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: chapterProvider.getDoraemonList.map((chapterData) {
+        print(chapterData);
+        return SingleItem(isBool: false,
+          image: chapterData.image,
+          name: chapterData.name,
+          description:chapterData.description,
+          chapterPage: chapterData.chapterPage,
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => ChapterPages(name: chapterData.name, chapterPages: chapterData.chapterPage),),);
+          },);
+      }).toList(),
+    ) : Container();
   }
 
   @override
@@ -51,6 +72,7 @@ class _ComicPageState extends State<ComicPage> {
     // TODO: implement initState
     ChapterProvider chapterProvider = Provider.of(context, listen: false);
     chapterProvider.fatchJujutsuKaisenListChapterData();
+    chapterProvider.fatchDoraemonChapterData();
     super.initState();
   }
 
@@ -143,7 +165,9 @@ class _ComicPageState extends State<ComicPage> {
                 ),
               ),
               const SizedBox(height:10,),
+              _buildDoraemonChapters(context),
               _buildJujutsunoKaisenChapters(context),
+
 
             ],
           ),

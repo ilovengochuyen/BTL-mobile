@@ -38,5 +38,36 @@ class ChapterProvider with ChangeNotifier {
     return chapterJujutsuKaisenList;
   }
 
+  /**********************************************
+   **********List Doraemon Chapters*************
+   *************************************************/
+
+  List<ChapterModel> chapterDoraemonList = [];
+  fatchDoraemonChapterData() async {
+    List<ChapterModel> newList = [];
+
+    QuerySnapshot value = await FirebaseFirestore.instance.collection("NewestComic")
+        .doc('Doraemon')
+        .collection('DoraemonChapters')
+        .get();
+    value.docs.forEach((element) {
+      print(element.data());
+      chapterModel = ChapterModel(
+        image: element.get("image"),
+        name: element.get("name"),
+        description: element.get("description"),
+        chapterPage: element.get("chapterPage"),
+      );
+      newList.add(chapterModel);
+    },
+    );
+    chapterDoraemonList = newList;
+    notifyListeners();
+  }
+
+  List<ChapterModel> get getDoraemonList {
+    return chapterDoraemonList;
+  }
+
 
 }
