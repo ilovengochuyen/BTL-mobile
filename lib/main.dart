@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:manga/providers/chapter_provider.dart';
 import 'package:manga/providers/comic_provider.dart';
 import 'package:manga/providers/UserID.dart';
 import 'package:manga/screens/screens.dart';
@@ -28,12 +29,12 @@ class MyApp extends StatelessWidget {
           initialRoute: 'start',
           title: 'manga',
           routes: {
-            'login': (context) => LoginPage(),
-            'register': (context) => myRegister(),
-            'forgot': (context) => resetPassword(),
-            'signup': (context) => SignupPage(),
-            'start': (context) => StartScreen(),
-            'comic_home_screen': (context) => ComicHomeScreen(),
+            'login': (context) => const LoginPage(),
+            'register': (context) => const myRegister(),
+            'forgot': (context) => const resetPassword(),
+            'signup': (context) => const SignupPage(),
+            'start': (context) => const StartScreen(),
+            'comic_home_screen': (context) => const ComicHomeScreen(),
           },
         )
     );

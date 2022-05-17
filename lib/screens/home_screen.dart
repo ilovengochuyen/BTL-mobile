@@ -1,9 +1,14 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:manga/screens/screens.dart';
+<<<<<<< HEAD
 import 'package:manga/providers/UserID.dart';
 import 'package:provider/provider.dart';
 
+=======
+/*
+>>>>>>> 55ab1b1b10bb28a40af6671035b8702deef4e91d
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -90,3 +95,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+*/

@@ -4,28 +4,70 @@ import 'package:flutter/material.dart';
 import 'package:manga/model/ChapterModel.dart';
 
 class ChapterProvider with ChangeNotifier {
-  List<ChapterModel> chapterList = [];
-  ChapterModel chapterModel = new ChapterModel(image: ' ', name: ' ', description: '');
 
-  fatchChapterData() async {
+  ChapterModel chapterModel = new ChapterModel(image: ' ', name: ' ', description: '', chapterPage: []);
+
+  /**********************************************
+   **********List Jujutsu no Kaisen Chapters*************
+   *************************************************/
+
+  List<ChapterModel> chapterJujutsuKaisenList = [];
+  fatchJujutsuKaisenListChapterData() async {
     List<ChapterModel> newList = [];
 
-    QuerySnapshot value = await FirebaseFirestore.instance.collection("NewestComic").get();
+    QuerySnapshot value = await FirebaseFirestore.instance.collection("NewestComic")
+        .doc('JujutsuKaisen')
+        .collection('JujutsuKaisenChapters')
+        .get();
     value.docs.forEach((element) {
       print(element.data());
       chapterModel = ChapterModel(
-          image: element.get("image"),
-          name: element.get("name"),
-          description: element.get("description"),
+        image: element.get("image"),
+        name: element.get("name"),
+        description: element.get("description"),
+        chapterPage: element.get("chapterPage"),
       );
       newList.add(chapterModel);
     },
     );
-    chapterList = newList;
+    chapterJujutsuKaisenList = newList;
     notifyListeners();
   }
 
-  List<ChapterModel> get getchapterList {
-    return chapterList;
+  List<ChapterModel> get getJujutsuKaisenList {
+    return chapterJujutsuKaisenList;
   }
+
+  /**********************************************
+   **********List Doraemon Chapters*************
+   *************************************************/
+
+  List<ChapterModel> chapterDoraemonList = [];
+  fatchDoraemonChapterData() async {
+    List<ChapterModel> newList = [];
+
+    QuerySnapshot value = await FirebaseFirestore.instance.collection("NewestComic")
+        .doc('Doraemon')
+        .collection('DoraemonChapters')
+        .get();
+    value.docs.forEach((element) {
+      print(element.data());
+      chapterModel = ChapterModel(
+        image: element.get("image"),
+        name: element.get("name"),
+        description: element.get("description"),
+        chapterPage: element.get("chapterPage"),
+      );
+      newList.add(chapterModel);
+    },
+    );
+    chapterDoraemonList = newList;
+    notifyListeners();
+  }
+
+  List<ChapterModel> get getDoraemonList {
+    return chapterDoraemonList;
+  }
+
+
 }

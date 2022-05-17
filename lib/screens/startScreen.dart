@@ -12,7 +12,6 @@ class StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     return Container(
       height: size.height,
       width: double.infinity,

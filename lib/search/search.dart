@@ -59,6 +59,7 @@ class _SearchPageState extends State<SearchPage> {
             children: _searchItem.map((data) {
               return SingleItem(
                   isBool: false,
+                  chapterPage: [],
                   name: data.name,
                   image: data.image,
                   description: data.description,

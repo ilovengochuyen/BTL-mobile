@@ -2,6 +2,8 @@ import 'dart:ffi';
 import 'package:manga/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../screens/comic_home_screen.dart';
+
 Image logoWidget(String imageName) {
   return Image.asset(
     imageName,

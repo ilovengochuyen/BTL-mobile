@@ -7,10 +7,12 @@ class SingleItem extends StatelessWidget {
   final String image;
   final String description;
   final VoidCallback onTap;
+  final List<dynamic> chapterPage;
+
 
   SingleItem({required this.isBool, required this.name,
     required this.image,required this.description,
-    required this.onTap});
+    required this.onTap, required this.chapterPage});
 
   @override
   Widget build(BuildContext context) {

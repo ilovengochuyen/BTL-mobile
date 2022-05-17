@@ -15,9 +15,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class LoginPageState extends State<LoginPage> {
+<<<<<<< HEAD
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
 
+=======
+  final TextEditingController _passwordTextController = TextEditingController();
+  final TextEditingController _emailTextController = TextEditingController();
+>>>>>>> 55ab1b1b10bb28a40af6671035b8702deef4e91d
   @override
   Widget build(BuildContext context) {
 
@@ -52,7 +57,7 @@ class LoginPageState extends State<LoginPage> {
                 const SizedBox(
                   height: 30,
                 ),
-                reusableTextField("Enter UserName", Icons.person_outline, false,
+                reusableTextField("Enter Username", Icons.person_outline, false,
                     _emailTextController),
                 const SizedBox(
                   height: 20,
@@ -62,12 +67,13 @@ class LoginPageState extends State<LoginPage> {
                 const SizedBox(
                   height: 5,
                 ),
-                firebaseUIButton(context, 50, "Sign In", () {
+                firebaseUIButton(context, 50, "Log In", () {
                   FirebaseAuth.instance
                       .signInWithEmailAndPassword(
                           email: _emailTextController.text,
                           password: _passwordTextController.text)
                       .then((value) {
+<<<<<<< HEAD
                         // ignore: unused_local_variable
                         //String value = toString(FirebaseAuth.instance.currentUser?.uid);
                         print(FirebaseAuth.instance.currentUser?.uid);
@@ -75,6 +81,10 @@ class LoginPageState extends State<LoginPage> {
                         print("UserID: ${userProfile.getUser()}");
                         Navigator.push(context,
                         MaterialPageRoute(builder: (context) => HomeScreen()));
+=======
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const ComicHomeScreen()));
+>>>>>>> 55ab1b1b10bb28a40af6671035b8702deef4e91d
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });

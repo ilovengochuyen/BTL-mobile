@@ -1,6 +1,7 @@
+import 'comic_home_screen.dart';
 import 'login.dart';
 import 'package:flutter/material.dart';
-import 'package:manga/screens/home_screen.dart';
+//import 'package:manga/screens/home_screen.dart';
 import 'package:manga/widgets/reusable_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -12,9 +13,9 @@ class SignupPage extends StatefulWidget {
   SignupPageState createState() => SignupPageState();
 }
 class SignupPageState extends State<SignupPage> {
-  TextEditingController _passwordTextController = TextEditingController();
-  TextEditingController _emailTextController = TextEditingController();
-  TextEditingController _userNameTextController = TextEditingController();
+  final TextEditingController _passwordTextController = TextEditingController();
+  final TextEditingController _emailTextController = TextEditingController();
+  final TextEditingController _userNameTextController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +45,12 @@ class SignupPageState extends State<SignupPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                reusableTextField("Enter UserName", Icons.person_outline, false,
+                reusableTextField("Enter Username", Icons.person_outline, false,
                     _userNameTextController),
                 const SizedBox(
                   height: 20,
                 ),
-                reusableTextField("Enter Email Id", Icons.person_outline, false,
+                reusableTextField("Enter Email", Icons.person_outline, false,
                     _emailTextController),
                 const SizedBox(
                   height: 20,
@@ -74,8 +75,7 @@ class SignupPageState extends State<SignupPage> {
                             'password': _passwordTextController.text,
                           });
                           print("Created New Account " + user.uid);
-                          Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const ComicHomeScreen()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });
@@ -88,7 +88,7 @@ class SignupPageState extends State<SignupPage> {
                     const Text("You have already had an account?"),
                     GestureDetector(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const LoginPage()));
                       },
                       child: const Text(
                           " Log In",

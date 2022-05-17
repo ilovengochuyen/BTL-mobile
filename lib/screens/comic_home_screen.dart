@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:manga/comic/comic_page.dart';
 import 'package:manga/providers/comic_provider.dart';
 import 'package:manga/comic/single_comic.dart';
+import 'package:manga/screens/screens.dart';
 import 'package:manga/search/search.dart';
 import 'package:provider/provider.dart';
+
+import '../widgets/reusable_widget.dart';
 
 
 class ComicHomeScreen extends StatefulWidget {
@@ -17,7 +20,7 @@ class ComicHomeScreen extends StatefulWidget {
 
 
 class _ComicHomeScreenState extends State<ComicHomeScreen> {
-  ComicProvider comicProvider = new ComicProvider();
+  ComicProvider comicProvider = ComicProvider();
 
   Widget _buildCarouselSlider(context) {
     return CarouselSlider(
@@ -439,7 +442,49 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
 
             ],
           ),
-        )
+        ),
+      bottomNavigationBar: Container(
+          padding: const EdgeInsets.symmetric(vertical: 14,),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(40),
+                topRight: Radius.circular(40),
+              ),
+              boxShadow: [BoxShadow(
+                offset: const Offset(0, -15),
+                blurRadius: 20,
+                color: const Color(0xFFDADADA).withOpacity(0.15),
+              )]
+          ),
+          child: SafeArea(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  // IconButton(onPressed: () {}, icon: Icon(Icons.home),),
+                  button2("Trang chủ", const Icon(Icons.home, color: Colors.deepOrange), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
+                  }),
+                  //IconButton(onPressed: () {}, icon: Icon(Icons.book)),
+                  button2("Truyện tranh", const Icon(Icons.book), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
+                  }),
+                  //IconButton(onPressed: () {}, icon: Icon(Icons.account_balance)),
+                  button2("Tủ sách", const Icon(Icons.account_balance), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
+                  }),
+                  //IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
+                  button2("Comicolours", const Icon(Icons.edit), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
+                  }),
+                  //IconButton(onPressed: () {}, icon: Icon(Icons.account_circle), color: Colors.deepOrange,),
+                  button2("Cá nhân", const Icon(Icons.account_circle), () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> UserProfile()));
+                  }),
+                ],
+              )
+          )
+      ),
     );
   }
 }
@@ -494,7 +539,7 @@ class _CarouselState extends State<Carousel> {
         Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: indicators(images.length,activePage))
-      ],
+      ]
     );
   }
 }
@@ -541,4 +586,5 @@ List<Widget> indicators(imagesLength, currentIndex) {
           shape: BoxShape.circle),
     );
   });
+
 }
