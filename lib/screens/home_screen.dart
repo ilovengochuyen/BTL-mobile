@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),                  GestureDetector(
                     onTap: (){
                       //userProfile.setUser("12334");
-                          print("UseId: ${userProfile.getUser()}")  ;
+                          print("UseId: ${userProfile.getUser().uid}")  ;
 
                       //Navigator.push(context, MaterialPageRoute(builder: (context)=> const resetPassword()));
                     },

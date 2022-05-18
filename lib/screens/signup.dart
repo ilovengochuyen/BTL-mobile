@@ -1,10 +1,12 @@
 import 'comic_home_screen.dart';
 import 'login.dart';
 import 'package:flutter/material.dart';
-//import 'package:manga/screens/home_screen.dart';
 import 'package:manga/widgets/reusable_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:manga/providers/UserID.dart';
+import 'package:provider/provider.dart';
+
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
@@ -18,7 +20,12 @@ class SignupPageState extends State<SignupPage> {
   final TextEditingController _userNameTextController = TextEditingController();
 
   @override
+
+  
   Widget build(BuildContext context) {
+
+
+    final userProfile = Provider.of<UserProvider>(context);
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
@@ -67,8 +74,8 @@ class SignupPageState extends State<SignupPage> {
                           password: _passwordTextController.text)
                       .then((value) async {
                           User? user = FirebaseAuth.instance.currentUser;
-
-                          await FirebaseFirestore.instance.collection("users").doc(user!.uid).set({
+                          userProfile.setUser(user!);
+                          await FirebaseFirestore.instance.collection("users").doc(user.uid).set({
                             'uid': user.uid,
                             'username' : _userNameTextController.text,
                             'email': _emailTextController.text,

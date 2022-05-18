@@ -68,13 +68,10 @@ class LoginPageState extends State<LoginPage> {
                           email: _emailTextController.text,
                           password: _passwordTextController.text)
                       .then((value) {
-                        // ignore: unused_local_variable
-                        //String value = toString(FirebaseAuth.instance.currentUser?.uid);
-                        print(FirebaseAuth.instance.currentUser?.uid);
-                        userProfile.setUser("${FirebaseAuth.instance.currentUser?.uid}");
-                        print("UserID: ${userProfile.getUser()}");
+                        User? user = FirebaseAuth.instance.currentUser;
+                        userProfile.setUser(user!);
                         Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const ComicHomeScreen()));
+                        MaterialPageRoute(builder: (context) => const HomeScreen()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                     showDialog(
