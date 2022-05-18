@@ -77,6 +77,13 @@ class LoginPageState extends State<LoginPage> {
                         MaterialPageRoute(builder: (context) => const ComicHomeScreen()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Text("Bạn chưa nhập đủ thông tin hoặc nhập chưa chính xác, vui lòng nhập lại!"),
+                          );
+                        });
                   });
                 }),
                 const SizedBox(height: 10,),

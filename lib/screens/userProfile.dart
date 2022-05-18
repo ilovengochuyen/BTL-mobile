@@ -37,12 +37,12 @@ class UserProfile extends StatelessWidget {
                                 backgroundColor: Colors.white,
                                 child: CircleAvatar(
                                   maxRadius: 70,
-                                  backgroundImage: AssetImage("assets/uerprofile.png"),)
+                                  backgroundImage: AssetImage("assets/userimage.png"),)
                             ),
 
                             Positioned(
-                                bottom: 0,
-                                right: 0,
+                                bottom: 0.0,
+                                right: 0.0,
                                 child: Container(
                                     height: 40,
                                     width: 40,
@@ -139,7 +139,7 @@ class UserProfile extends StatelessWidget {
                   FirebaseAuth.instance.signOut().then((value) => {
                     print("Sign out"),
                     Navigator.push(context, 
-                      MaterialPageRoute(builder: (context) => const StartScreen())),
+                      MaterialPageRoute(builder: (context) => const LoginPage())),
                     });
               },
               color: const Color.fromARGB(255, 216, 210, 208),

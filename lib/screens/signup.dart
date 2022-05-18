@@ -78,6 +78,13 @@ class SignupPageState extends State<SignupPage> {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => const ComicHomeScreen()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Text("Bạn chưa nhập đủ thông tin hoặc nhập chưa chính xác, vui lòng nhập lại!"),
+                          );
+                        });
                   });
                 }),
 
