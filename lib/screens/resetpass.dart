@@ -1,4 +1,5 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:manga/widgets/reusable_widget.dart';
 import 'package:manga/screens/screens.dart';
@@ -8,10 +9,40 @@ class resetPassword extends StatefulWidget {
 
   @override
   _resetPasswordState createState() => _resetPasswordState();
+
 }
 
 class _resetPasswordState extends State<resetPassword> {
-  TextEditingController _emailTextController = TextEditingController();
+  final TextEditingController _emailTextController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailTextController.dispose();
+    super.dispose();
+  }
+
+  Future passwordReset() async {
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: _emailTextController.text.trim());
+      showDialog(
+          context: context,
+          builder: (context) {
+            return const AlertDialog(
+              content: Text('Vui lòng kiểm tra hòm thư của bạn và làm theo hướng dẫn!'),
+            );
+          });
+    } on FirebaseAuthException catch (e) {
+      print(e);
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text(e.message.toString()),
+            );
+          });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,15 +80,46 @@ class _resetPasswordState extends State<resetPassword> {
                   child: Column(
 
                     children: [
-                      reusableTextField("Enter Email Id", Icons.person_outline, false,
+                      reusableTextField("Enter your email", Icons.person_outline, false,
                       _emailTextController),
                       const SizedBox(height: 40,),
-                      
+/*
                       firebaseUIButton(context, 50,  "Reset Password", () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => StartScreen()));
+                        Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => const ComicHomeScreen()));
                       }),
-                      SizedBox(height: 30.0),
+*/
+/*
+                      MaterialButton(
+                        onPressed: passwordReset,
+                        child: Text("Reset Password"),
+                        color: Colors.deepOrange,
+                      ),
+                      */
+                    Container(width: MediaQuery.of(context).size.width,
+                      height: 50,
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
+                      child: ElevatedButton(
+                        onPressed: passwordReset,
+                        child: Text(
+                          "Reset Password",
+                          style: const TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.resolveWith((states) {
+                              if (states.contains(MaterialState.pressed)) {
+                                return Colors.redAccent;
+                              }
+                              return Colors.red;
+                            }),
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)))),
+                      ),
+                    ),
+
+                      const SizedBox(height: 50, width: 120),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -72,7 +134,7 @@ class _resetPasswordState extends State<resetPassword> {
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'login');
+                              Navigator.pushNamed(context, 'comic_home_screen');
                             },
                             child: Text(
                               'Log In',
