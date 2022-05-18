@@ -351,7 +351,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
               maintainAnimation: true,
               maintainState: true,
               visible: true,) : Visibility(
-              child: Text("skkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"),
+              child: Text("slllllllllllllllllllllllllllllllllllllllll"),
               visible: false,
             ),
 

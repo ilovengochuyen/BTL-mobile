@@ -6,6 +6,8 @@ import 'package:manga/screens/home_screen.dart';
 import 'package:manga/widgets/reusable_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'comics_screen.dart';
+
 class UserProfile extends StatelessWidget {
 
   @override
@@ -189,7 +191,7 @@ class UserProfile extends StatelessWidget {
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.book)),
                   button2("Truyện tranh", const Icon(Icons.book), () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicsScreen()));
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.account_balance)), 
                   button2("Tủ sách", const Icon(Icons.account_balance), () {
