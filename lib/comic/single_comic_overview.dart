@@ -29,7 +29,7 @@ class ComicOverview extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 50, right: 10, left: 10,),
                 child: Container(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: Colors.grey.withOpacity(0.3),
                   height: 180,
                   //width: 200,
                   child: Padding(
@@ -52,25 +52,16 @@ class ComicOverview extends StatelessWidget {
                           alignment: Alignment.centerLeft,
                           child: Container(
                             //color: Colors.red,
-                            child: Text(genres),
+                            child: Text(genres, style: TextStyle(color: Colors.white),),
                           ),
                         ),
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Container(
                             //color: Colors.red,
-                            child: Text(description),
+                            child: Text(description, style: TextStyle(color: Colors.white),),
                           ),
                         ),
-
-                        /*Padding(
-                                  padding: EdgeInsets.only(right: 250,),
-                                  child: Text('Description is one of the',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.white,
-                                    ),),
-                                ),*/
 
                       ],
                     ),

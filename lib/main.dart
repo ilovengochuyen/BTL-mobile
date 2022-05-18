@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:manga/providers/banner_provider.dart';
 import 'package:manga/providers/chapter_provider.dart';
 import 'package:manga/providers/comic_provider.dart';
 import 'package:manga/providers/UserID.dart';
@@ -22,6 +23,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<ComicProvider>(create: (context)=>ComicProvider()),
+        ChangeNotifierProvider<ChapterProvider>(create: (context)=>ChapterProvider()),
+        ChangeNotifierProvider<BannerProvider>(create: (context)=>BannerProvider()),
         ChangeNotifierProvider<UserProvider>(create: (context)=>UserProvider()),
       ],
           child: MaterialApp(
