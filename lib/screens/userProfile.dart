@@ -1,8 +1,6 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:manga/screens/comic_home_screen.dart';
-import 'package:manga/screens/startScreen.dart';
-import 'package:manga/screens/home_screen.dart';
+import 'package:manga/screens/screens.dart';
 import 'package:manga/widgets/reusable_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -57,7 +55,7 @@ class UserProfile extends StatelessWidget {
 
                                     child: //Icon(Icons.edit, color: Colors.white,)
                                     reusableButton("setting", const Icon(Icons.edit, color: Color.fromARGB(255, 22, 20, 20),), (){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const EditProfile()));
                                     })
                                     )),
                           ],

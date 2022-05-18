@@ -6,3 +6,4 @@ export 'startScreen.dart';
 export 'userProfile.dart';
 export 'home_screen.dart';
 export 'comic_home_screen.dart';
+export 'edit_profile.dart';
