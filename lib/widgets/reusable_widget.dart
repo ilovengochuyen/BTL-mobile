@@ -104,7 +104,7 @@ Container button2 (String buttonName, Icon icon, Function onTap) {
   );
 }
 
-//button with icon, text, row
+//button with icon, text, arrow
 GestureDetector button3 (BuildContext context, String buttonName, Icon icon, Function onTap) {
   return GestureDetector( 
     onTap: (){
