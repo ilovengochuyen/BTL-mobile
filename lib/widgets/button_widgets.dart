@@ -50,10 +50,14 @@ GestureDetector button4 (BuildContext context, String buttonName, String value, 
           bottom: BorderSide(color: Color.fromARGB(255, 194, 190, 190), width: 1.0,)
       ),
       ),
-      child: Row(children: [
+      
+      child: Row(
+        children: [
+          
       Container(
+        
       child: Column(children: [
-
+          
       Align(
         alignment: Alignment.topLeft,
         child:             
