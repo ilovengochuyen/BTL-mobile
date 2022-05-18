@@ -241,6 +241,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
                         day[4]=false;
                         day[5]=false;
                         day[6]=false;
+                        setState(() {});
                         print("true");},
                       child: Text('T2'),),
                     TextButton(
@@ -255,6 +256,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
                           day[4]=false;
                           day[5]=false;
                           day[6]=false;
+                          setState(() {});
                           print("true");
                         },
                         child: Text('T3')),
@@ -270,6 +272,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
                           day[4]=false;
                           day[5]=false;
                           day[6]=false;
+                          setState(() {});
                           print("true");
                         },
                         child: Text('T4')),
@@ -285,6 +288,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
                           day[4]=false;
                           day[5]=true;
                           day[6]=false;
+                          setState(() {});
                           print("true");
                         },
                         child: Text('T5')),
@@ -300,6 +304,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
                           day[4]=true;
                           day[5]=false;
                           day[6]=false;
+                          setState(() {});
                           print("true");
                         },
                         child: Text('T6')),
@@ -315,6 +320,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
                           day[4]=false;
                           day[5]=true;
                           day[6]=false;
+                          setState(() {});
                           print("true");
                         },
                         child: Text('T7')),
@@ -330,6 +336,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
                           day[4]=false;
                           day[5]=false;
                           day[6]=true;
+                          setState(() {});
                           print("true");
                         },
                         child: Text('CN')),
@@ -351,7 +358,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
               maintainAnimation: true,
               maintainState: true,
               visible: true,) : Visibility(
-              child: Text("slllllllllllllllllllllllllllllllllllllllll"),
+              child: Text("ssssssssssssssssssssssssssssssssssssssssssssssssssss"),
               visible: false,
             ),
 

@@ -41,6 +41,8 @@ class _SearchPageState extends State<SearchPage> {
               onChanged: ((value) {
                 print(value);
                 query = value;
+                setState(() {
+                });
               }),
               decoration: InputDecoration(
                 border: OutlineInputBorder(
