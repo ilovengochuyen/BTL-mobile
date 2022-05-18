@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:manga/providers/banner_provider.dart';
 import 'package:manga/providers/chapter_provider.dart';
 import 'package:manga/providers/comic_provider.dart';
 import 'package:manga/providers/UserID.dart';
@@ -19,12 +20,30 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+    return MultiProvider(providers: [
+      ChangeNotifierProvider<ComicProvider>(
+        create: (context)=>ComicProvider(),),
+      ChangeNotifierProvider<ChapterProvider>(
+        create: (context)=>ChapterProvider(),),
+      ChangeNotifierProvider<BannerProvider>(
+        create: (context)=>BannerProvider(),),
+    ],
+        child: MaterialApp(
+=======
+>>>>>>> Stashed changes
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<ComicProvider>(create: (context)=>ComicProvider()),
         ChangeNotifierProvider<UserProvider>(create: (context)=>UserProvider()),
       ],
           child: MaterialApp(
+<<<<<<< Updated upstream
+=======
+>>>>>>> 8324be6ad4bb456500b81bae467b72b03ca58243
+>>>>>>> Stashed changes
           debugShowCheckedModeBanner: false,
           initialRoute: 'start',
           title: 'manga',
