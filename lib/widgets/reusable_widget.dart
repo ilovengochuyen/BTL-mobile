@@ -1,8 +1,8 @@
-import 'dart:ffi';
-import 'package:manga/screens/home_screen.dart';
+//import 'dart:ffi';
+//import 'package:manga/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../screens/comic_home_screen.dart';
+//import '../screens/comic_home_screen.dart';
 
 Image logoWidget(String imageName) {
   return Image.asset(
@@ -33,8 +33,8 @@ TextField reusableTextField(String text, IconData icon, bool isPasswordType,
       filled: true,
       floatingLabelBehavior: FloatingLabelBehavior.never,
       fillColor: Colors.white70.withOpacity(0.3),
-      contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-      border: OutlineInputBorder(
+      contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+      border: const OutlineInputBorder(
           //borderRadius: BorderRadius.circular(30.0),
           borderSide: const BorderSide(width: 0, style: BorderStyle.none,color: Colors.grey)),
     ),
@@ -108,22 +108,23 @@ Container button2 (String buttonName, Icon icon, Function onTap) {
 GestureDetector button3 (BuildContext context, String buttonName, Icon icon, Function onTap) {
   return GestureDetector( 
     onTap: (){
-      onTap();
+      //onTap();
     },
     child: Container(
       width: MediaQuery.of(context).size.width,
-      height: 40,
-      padding: EdgeInsets.only(left: 10.0),
-      decoration: BoxDecoration(
+      height: 45,
+      padding: const EdgeInsets.only(left: 0),
+      decoration: const BoxDecoration(
         border: Border(
           bottom: BorderSide(color: Color.fromARGB(255, 194, 190, 190), width: 1.0,)
       ),
       ),
       child: Row(children: [
       icon,
-      SizedBox(width: 10,),
+      const SizedBox(width: 10,),
       Container(
-      width: 100,
+        //width: MediaQuery.of(context).size.width,
+      width: 200,
       child: Text(
         buttonName,
         style: const TextStyle(
@@ -131,8 +132,10 @@ GestureDetector button3 (BuildContext context, String buttonName, Icon icon, Fun
       ),
       ),
 
-      SizedBox(width: 240,),
-      Icon(Icons.arrow_forward_ios,
+      const SizedBox(width: 100,),
+
+
+      const Icon(Icons.arrow_forward_ios,
             size: 20,
             color: Colors.black,),
     ]),
