@@ -1,10 +1,13 @@
 //import 'package:flutter/cupertino.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:manga/screens/screens.dart';
 import 'package:manga/widgets/reusable_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'signup.dart';
 
 import 'dart:io';
 
@@ -21,6 +24,7 @@ class UserProfile extends StatefulWidget {
 class UserProfileState extends State<UserProfile> {
 
   File ? image;
+  late String url;
 
   Future pickImage(ImageSource _source) async {
     try {
@@ -33,7 +37,9 @@ class UserProfileState extends State<UserProfile> {
     } on PlatformException catch(e) {
       print("Failed to pick image: $e");
     }
+    Navigator.pop(context);
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +73,7 @@ class UserProfileState extends State<UserProfile> {
                                   backgroundImage: (image == null)
                                       ? AssetImage("assets/userimage.png")
                                       : FileImage(File(image!.path)) as ImageProvider
+
                                 )
                             ),
 
@@ -131,12 +138,12 @@ class UserProfileState extends State<UserProfile> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                squareButton(180, 25, "Lịch sử", false,  () {
+                squareButton(170, 25, "Lịch sử", false,  () {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                     
                 }),
                 const SizedBox(width: 10,),
-                squareButton(180, 25, "Nạp xu", true,  () {
+                squareButton(170, 25, "Nạp xu", true,  () {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                     
                 }),
@@ -144,16 +151,19 @@ class UserProfileState extends State<UserProfile> {
             ),
           ),
           Container(
+              width: MediaQuery.of(context).size.width,
               //padding: EdgeInsets.all(20),
               color: const Color.fromARGB(171, 252, 251, 251),
-              child: Row(
-                children: <Widget> [
+              child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: <Widget> [
                   Column(
                     children: <Widget> [
                       button3(context, "Truyện theo dõi", const Icon(Icons.trending_up, color: Colors.grey,), () {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                         //
-                      }),    
+                      }),
                       button3(context, "Thông báo", const Icon(Icons.notifications_none, color: Colors.grey), () {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
                         //
@@ -166,6 +176,7 @@ class UserProfileState extends State<UserProfile> {
                     ],
                   )
                 ],
+              )
               )
           ),
           Container(
@@ -255,6 +266,7 @@ class UserProfileState extends State<UserProfile> {
     );
 
   }
+
   Widget bottomSheet() {
     return Container(
       height: 100.0,
@@ -279,13 +291,16 @@ class UserProfileState extends State<UserProfile> {
               icon: const Icon(Icons.camera),
               onPressed: () {
                 pickImage(ImageSource.camera);
+                final ref = FirebaseStorage.instance.ref().child('avatar');
+                ref.putFile(image!);
               },
               label: const Text("Máy ảnh", style: TextStyle(color: Colors.black),),
             ),
             TextButton.icon(
               icon: const Icon(Icons.image),
-              onPressed: () {
+              onPressed: () async {
                 pickImage(ImageSource.gallery);
+
               },
               label: const Text("Thư viện", style: TextStyle(color: Colors.black)),
             ),

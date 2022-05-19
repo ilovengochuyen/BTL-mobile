@@ -71,7 +71,7 @@ class LoginPageState extends State<LoginPage> {
                         User? user = FirebaseAuth.instance.currentUser;
                         userProfile.setUser(user!);
                         Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const HomeScreen()));
+                        MaterialPageRoute(builder: (context) => const ComicHomeScreen()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                     showDialog(

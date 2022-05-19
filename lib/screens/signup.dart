@@ -1,3 +1,6 @@
+import 'dart:ffi';
+import 'dart:io';
+
 import 'comic_home_screen.dart';
 import 'login.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +21,7 @@ class SignupPageState extends State<SignupPage> {
   final TextEditingController _passwordTextController = TextEditingController();
   final TextEditingController _emailTextController = TextEditingController();
   final TextEditingController _userNameTextController = TextEditingController();
+  File ? avatar ;
 
   @override
 
@@ -75,11 +79,13 @@ class SignupPageState extends State<SignupPage> {
                       .then((value) async {
                           User? user = FirebaseAuth.instance.currentUser;
                           userProfile.setUser(user!);
+
                           await FirebaseFirestore.instance.collection("users").doc(user.uid).set({
                             'uid': user.uid,
                             'username' : _userNameTextController.text,
                             'email': _emailTextController.text,
                             'password': _passwordTextController.text,
+                            'avatar': avatar,
                           });
                           print("Created New Account " + user.uid);
                           Navigator.push(context, MaterialPageRoute(builder: (context) => const ComicHomeScreen()));
@@ -88,8 +94,8 @@ class SignupPageState extends State<SignupPage> {
                     showDialog(
                         context: context,
                         builder: (context) {
-                          return AlertDialog(
-                            content: Text("Bạn chưa nhập đủ thông tin hoặc nhập chưa chính xác, vui lòng nhập lại!"),
+                          return const AlertDialog(
+                            content: Text("Bạn chưa nhập đủ thông tin hoặc thông tin chưa chính xác, vui lòng nhập lại!"),
                           );
                         });
                   });
