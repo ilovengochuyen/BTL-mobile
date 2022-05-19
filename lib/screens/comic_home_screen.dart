@@ -192,6 +192,100 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
       ],
     );
   }
+  Widget _buildSoLComic(context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text('Đời thường',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),),
+              Text('Xem tất cả',
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                  )),
+            ],
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: comicProvider.getSoLComicDataList
+                .map((hottestComicData) {
+              return SingleComic(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ComicPage(image: hottestComicData.image,
+                          name: hottestComicData.name, genres: hottestComicData.genres, description: hottestComicData.description,
+                          author: hottestComicData.author),
+                    ),
+                  );},
+                image: hottestComicData.image,
+                name: hottestComicData.name,
+
+              );
+            })
+                .toList(),
+          ),
+        ),
+      ],
+    );
+  }
+  Widget _buildRomanticComic(context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text('Lãng mạn',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),),
+              Text('Xem tất cả',
+                  style: TextStyle(
+                    color: Colors.grey[400],
+                  )),
+            ],
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: comicProvider.getRomanticComicDataList
+                .map((hottestComicData) {
+              return SingleComic(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ComicPage(image: hottestComicData.image,
+                          name: hottestComicData.name, genres: hottestComicData.genres, description: hottestComicData.description,
+                          author: hottestComicData.author),
+                    ),
+                  );},
+                image: hottestComicData.image,
+                name: hottestComicData.name,
+
+              );
+            })
+                .toList(),
+          ),
+        ),
+      ],
+    );
+  }
 
   @override
   void initState() {
@@ -200,6 +294,8 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
     comicProvider.fatchNewestComicData();
     comicProvider.fatchHottestComicData();
     comicProvider.fatchActionComicData();
+    comicProvider.fatchRomanticComicData();
+    comicProvider.fatchSoLComicData();
     bannerProvider.fatchBannerData();
     super.initState();
   }
@@ -253,6 +349,8 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
               _buildNewestComic(context),
               _buildHottestComic(context),
               _buildActionComic(context),
+              _buildRomanticComic(context),
+              _buildSoLComic(context),
             ],
           ),
         ),

@@ -124,7 +124,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
   Widget _buildT6Comic(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: comicProvider.getActionComicDataList.reversed
+      children: comicProvider.getRomanticComicDataList.reversed
           .map((newestComicData) {
         return SingleItem(
           onTap: () {
@@ -149,7 +149,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
   Widget _buildT7Comic(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: comicProvider.getHottestComicDataList.reversed
+      children: comicProvider.getSoLComicDataList.reversed
           .map((newestComicData) {
         return SingleItem(
           onTap: () {
@@ -358,7 +358,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
               maintainAnimation: true,
               maintainState: true,
               visible: true,) : Visibility(
-              child: Text("ssssssssssssssssssssssssssssssssssssssssssssssssssss"),
+              child: Text(""),
               visible: false,
             ),
 
