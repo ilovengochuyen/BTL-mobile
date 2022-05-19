@@ -88,6 +88,53 @@ class ComicProvider with ChangeNotifier {
   }
 
   /**********************************************
+   **********List Slice of Life Comic Model*************
+   *************************************************/
+
+  List<ComicModel> solComicList = [];
+  fatchSoLComicData() async {
+    List<ComicModel> newList = [];
+    QuerySnapshot value = await FirebaseFirestore.instance.collection("SliceOfLifeComic").get();
+
+    value.docs.forEach((element) {
+      print(element.data());
+      comicModels(element);
+      newList.add(comicModel);
+    },
+    );
+    solComicList = newList;
+    notifyListeners();
+  }
+
+  List<ComicModel> get getSoLComicDataList {
+    return solComicList;
+  }
+
+  /**********************************************
+   **********List Romantic Comic Model*************
+   *************************************************/
+
+  List<ComicModel> romanticComicList = [];
+  fatchRomanticComicData() async {
+    List<ComicModel> newList = [];
+    QuerySnapshot value = await FirebaseFirestore.instance.collection("RomaticComic").get();
+
+    value.docs.forEach((element) {
+      print(element.data());
+      comicModels(element);
+      newList.add(comicModel);
+    },
+    );
+    romanticComicList = newList;
+    notifyListeners();
+  }
+
+  List<ComicModel> get getRomanticComicDataList {
+    return romanticComicList;
+  }
+
+
+  /**********************************************
    **********Search*************
    *************************************************/
   List<ComicModel> get getAllSearchItem {
