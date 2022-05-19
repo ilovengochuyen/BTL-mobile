@@ -86,7 +86,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
                     MaterialPageRoute(
                       builder: (context) => ComicPage(image: newestComicData.image,
                           name: newestComicData.name, genres: newestComicData.genres, description: newestComicData.description,
-                          author: newestComicData.author),
+                          author: newestComicData.author, id: newestComicData.id),
                     ),
                   );},
                 image: newestComicData.image,
@@ -132,7 +132,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
                     MaterialPageRoute(
                       builder: (context) => ComicPage(image: hottestComicData.image,
                           name: hottestComicData.name, genres: hottestComicData.genres, description: hottestComicData.description,
-                          author: hottestComicData.author),
+                          author: hottestComicData.author, id: hottestComicData.id,),
                     ),
                   );},
                 image: hottestComicData.image,
@@ -171,20 +171,20 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: comicProvider.getActionComicDataList
-                .map((hottestComicData) {
+                .map((data) {
               return SingleComic(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ComicPage(image: hottestComicData.image,
-                          name: hottestComicData.name, genres: hottestComicData.genres, description: hottestComicData.description,
-                          author: hottestComicData.author),
+                      builder: (context) => ComicPage(image: data.image,
+                          name: data.name, genres: data.genres, description: data.description,
+                          author: data.author, id: data.id
+                      ),
                     ),
                   );},
-                image: hottestComicData.image,
-                name: hottestComicData.name,
-
+                image: data.image,
+                name: data.name,
               );
             })
                 .toList(),
@@ -218,19 +218,19 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: comicProvider.getSoLComicDataList
-                .map((hottestComicData) {
+                .map((data) {
               return SingleComic(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ComicPage(image: hottestComicData.image,
-                          name: hottestComicData.name, genres: hottestComicData.genres, description: hottestComicData.description,
-                          author: hottestComicData.author),
+                      builder: (context) => ComicPage(image: data.image,
+                          name: data.name, genres: data.genres, description: data.description,
+                          author: data.author, id: data.id,),
                     ),
                   );},
-                image: hottestComicData.image,
-                name: hottestComicData.name,
+                image: data.image,
+                name: data.name,
 
               );
             })
@@ -265,19 +265,20 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: comicProvider.getRomanticComicDataList
-                .map((hottestComicData) {
+                .map((data) {
               return SingleComic(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ComicPage(image: hottestComicData.image,
-                          name: hottestComicData.name, genres: hottestComicData.genres, description: hottestComicData.description,
-                          author: hottestComicData.author),
+                      builder: (context) => ComicPage(image: data.image,
+                          name: data.name, genres: data.genres, description: data.description,
+                          author: data.author, id: data.id
+                      ),
                     ),
                   );},
-                image: hottestComicData.image,
-                name: hottestComicData.name,
+                image: data.image,
+                name: data.name,
 
               );
             })

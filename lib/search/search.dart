@@ -71,7 +71,8 @@ class _SearchPageState extends State<SearchPage> {
                   MaterialPageRoute(
                     builder: (context) => ComicPage(image: data.image,
                         name: data.name, genres: data.genres, description: data.description,
-                        author: data.author),
+                        author: data.author, id: data.id
+                      ,),
                   ),
                 );},);
             }).toList(),

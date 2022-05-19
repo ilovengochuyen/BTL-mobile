@@ -4,7 +4,7 @@ import 'package:manga/model/ComicModel.dart';
 
 class ComicProvider with ChangeNotifier {
 
-  ComicModel comicModel = new ComicModel(image: ' ', name: ' ', genres: '', description: '', author: '');
+  ComicModel comicModel = new ComicModel(image: ' ', name: ' ', genres: '', description: '', author: '', id: '');
   List<ComicModel> search=[];
   comicModels(QueryDocumentSnapshot element) {
     comicModel = ComicModel(
@@ -12,7 +12,8 @@ class ComicProvider with ChangeNotifier {
         name: element.get("name"),
         description: element.get("description"),
         genres: element.get("genres"),
-        author: element.get("author")
+        author: element.get("author"),
+        id: element.get("id"),
     );
     search.add(comicModel);
   }

@@ -54,7 +54,8 @@ class _ComicolorsScreenState extends State<ComicolorsScreen> {
                     MaterialPageRoute(
                       builder: (context) => ComicPage(image: newestComicData.image,
                           name: newestComicData.name, genres: newestComicData.genres, description: newestComicData.description,
-                          author: newestComicData.author),
+                          author: newestComicData.author, id: newestComicData.id
+                        ,),
                     ),
                   );},
                 image: newestComicData.image,
@@ -100,7 +101,7 @@ class _ComicolorsScreenState extends State<ComicolorsScreen> {
                     MaterialPageRoute(
                       builder: (context) => ComicPage(image: hottestComicData.image,
                           name: hottestComicData.name, genres: hottestComicData.genres, description: hottestComicData.description,
-                          author: hottestComicData.author),
+                          author: hottestComicData.author, id: hottestComicData.id,),
                     ),
                   );},
                 image: hottestComicData.image,
@@ -139,19 +140,19 @@ class _ComicolorsScreenState extends State<ComicolorsScreen> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: comicProvider.getSoLComicDataList.reversed
-                .map((hottestComicData) {
+                .map((data) {
               return SingleComic(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ComicPage(image: hottestComicData.image,
-                          name: hottestComicData.name, genres: hottestComicData.genres, description: hottestComicData.description,
-                          author: hottestComicData.author),
+                      builder: (context) => ComicPage(image: data.image,
+                          name: data.name, genres: data.genres, description: data.description,
+                          author: data.author, id: data.id,),
                     ),
                   );},
-                image: hottestComicData.image,
-                name: hottestComicData.name,
+                image: data.image,
+                name: data.name,
 
               );
             })
@@ -186,19 +187,19 @@ class _ComicolorsScreenState extends State<ComicolorsScreen> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: comicProvider.getRomanticComicDataList.reversed
-                .map((hottestComicData) {
+                .map((data) {
               return SingleComic(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ComicPage(image: hottestComicData.image,
-                          name: hottestComicData.name, genres: hottestComicData.genres, description: hottestComicData.description,
-                          author: hottestComicData.author),
+                      builder: (context) => ComicPage(image: data.image,
+                          name: data.name, genres: data.genres, description: data.description,
+                          author: data.author, id: data.id,),
                     ),
                   );},
-                image: hottestComicData.image,
-                name: hottestComicData.name,
+                image: data.image,
+                name: data.name,
 
               );
             })

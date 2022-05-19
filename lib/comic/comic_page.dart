@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:manga/providers/chapter_provider.dart';
+import 'package:manga/providers/follow_comic_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../chapter/chapter_page.dart';
@@ -12,11 +13,12 @@ class ComicPage extends StatefulWidget {
   final String description;
   final String genres;
   final String author;
+  final String id;
 
   ComicPage({required this.image,
     required this.name,
     required this.description,
-    required this.genres, required this.author});
+    required this.genres, required this.author, required this.id});
 
   @override
   _ComicPageState createState() => _ComicPageState();
@@ -78,6 +80,7 @@ class _ComicPageState extends State<ComicPage> {
 
   @override
   Widget build(BuildContext context) {
+    FollowComicProvider followComicProvider = Provider.of(context);
     return Scaffold(
         appBar: AppBar(title: Text(widget.name), backgroundColor: Colors.deepOrange,),
         body: Padding(
@@ -140,7 +143,23 @@ class _ComicPageState extends State<ComicPage> {
                                       child: Text(widget.description),
                                     ),
                                   ),
-
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        minimumSize: Size(20, 10),
+                                      ),
+                                      child: Text("Theo dõi"),
+                                      onPressed: (){
+                                        followComicProvider.addFollowComicData(
+                                          name: widget.name,
+                                          description: widget.description,
+                                          image: widget.image,
+                                          id: widget.id,
+                                        );
+                                      },
+                                    )
+                                  ),
                                 ],
                               ),
                             ),

@@ -33,7 +33,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
                   MaterialPageRoute(
                     builder: (context) => ComicPage(image: newestComicData.image,
                         name: newestComicData.name, genres: newestComicData.genres, description: newestComicData.description,
-                        author: newestComicData.author),
+                        author: newestComicData.author, id: newestComicData.id),
                   ),
                 );},
               image: newestComicData.image,
@@ -58,7 +58,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
               MaterialPageRoute(
                 builder: (context) => ComicPage(image: data.image,
                     name: data.name, genres: data.genres, description: data.description,
-                    author: data.author),
+                    author: data.author, id: data.id),
               ),
             );},
           image: data.image,
@@ -83,7 +83,8 @@ class _ComicsScreenState extends State<ComicsScreen> {
               MaterialPageRoute(
                 builder: (context) => ComicPage(image: data.image,
                     name: data.name, genres: data.genres, description: data.description,
-                    author: data.author),
+                    author: data.author, id: data.id
+                  ,),
               ),
             );},
           image: data.image,
@@ -108,7 +109,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
               MaterialPageRoute(
                 builder: (context) => ComicPage(image: newestComicData.image,
                     name: newestComicData.name, genres: newestComicData.genres, description: newestComicData.description,
-                    author: newestComicData.author),
+                    author: newestComicData.author, id: newestComicData.id),
               ),
             );},
           image: newestComicData.image,
@@ -133,7 +134,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
               MaterialPageRoute(
                 builder: (context) => ComicPage(image: newestComicData.image,
                     name: newestComicData.name, genres: newestComicData.genres, description: newestComicData.description,
-                    author: newestComicData.author),
+                    author: newestComicData.author, id: newestComicData.id),
               ),
             );},
           image: newestComicData.image,
@@ -158,7 +159,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
               MaterialPageRoute(
                 builder: (context) => ComicPage(image: newestComicData.image,
                     name: newestComicData.name, genres: newestComicData.genres, description: newestComicData.description,
-                    author: newestComicData.author),
+                    author: newestComicData.author, id: newestComicData.id),
               ),
             );},
           image: newestComicData.image,
@@ -183,7 +184,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
               MaterialPageRoute(
                 builder: (context) => ComicPage(image: newestComicData.image,
                     name: newestComicData.name, genres: newestComicData.genres, description: newestComicData.description,
-                    author: newestComicData.author),
+                    author: newestComicData.author, id: newestComicData.id,),
               ),
             );},
           image: newestComicData.image,
