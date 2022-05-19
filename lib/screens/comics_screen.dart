@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:manga/comic/comic_page.dart';
 import 'package:manga/providers/comic_provider.dart';
 import 'package:manga/comic/single_comic.dart';
+import 'package:manga/screens/follow_screen.dart';
 import 'package:manga/screens/screens.dart';
 import 'package:manga/widgets/single_item.dart';
 import 'package:provider/provider.dart';
@@ -449,7 +450,7 @@ class _ComicsScreenState extends State<ComicsScreen> {
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.account_balance)),
                   button2("Tủ sách", const Icon(Icons.account_balance), () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const FollowScreen()));
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
                   button2("Comicolours", const Icon(Icons.edit), () {

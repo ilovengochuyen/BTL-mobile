@@ -4,6 +4,7 @@ import 'package:manga/comic/comic_page.dart';
 import 'package:manga/providers/comic_provider.dart';
 import 'package:manga/comic/single_comic.dart';
 import 'package:manga/screens/comics_screen.dart';
+import 'package:manga/screens/follow_screen.dart';
 import 'package:manga/screens/screens.dart';
 import 'package:manga/search/search.dart';
 import 'package:provider/provider.dart';
@@ -283,7 +284,7 @@ class _ComicolorsScreenState extends State<ComicolorsScreen> {
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.account_balance)),
                   button2("Tủ sách", const Icon(Icons.account_balance), () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicHomeScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const FollowScreen()));
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
                   button2("Comicolours", const Icon(Icons.edit), () {

@@ -26,7 +26,6 @@ class ComicPage extends StatefulWidget {
 
 class _ComicPageState extends State<ComicPage> {
   ChapterProvider chapterProvider = new ChapterProvider();
-
   Widget _buildJujutsunoKaisenChapters(context) {
     chapterProvider = Provider.of(context);
     //ListView(
@@ -152,10 +151,10 @@ class _ComicPageState extends State<ComicPage> {
                                       child: Text("Theo dõi"),
                                       onPressed: (){
                                         followComicProvider.addFollowComicData(
-                                          name: widget.name,
-                                          description: widget.description,
-                                          image: widget.image,
-                                          id: widget.id,
+                                          followName: widget.name,
+                                          followDescription: widget.description,
+                                          followImage: widget.image,
+                                          followId: widget.id,
                                         );
                                       },
                                     )

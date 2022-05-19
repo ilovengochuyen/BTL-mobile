@@ -1,9 +1,11 @@
 class FollowComicModel {
-  String name = '';
-  String image = '';
-  String description = '';
-  String id = ' ';
+  String followId = '';
+  String followName = '';
+  String followImage = '';
+  String followDescription = ' ';
 
-  FollowComicModel({required this.image, required this.name,
-    required this.description, required this.id});
+  FollowComicModel({required this.followDescription,
+    required this.followName,
+    required this.followImage,
+    required this.followId});
 }

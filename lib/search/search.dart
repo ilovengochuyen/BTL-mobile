@@ -33,7 +33,7 @@ class _SearchPageState extends State<SearchPage> {
       ),
       body: ListView(
         children: [
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Container(
             height: 52,
             margin: const EdgeInsets.symmetric(horizontal: 20),
