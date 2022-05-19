@@ -104,21 +104,22 @@ class _ComicPageState extends State<ComicPage> {
                           child: Container(
                             color: Colors.grey.withOpacity(0.5),
                             height: 180,
-                            //width: 200,
                             child: Padding(
                               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Align(
                                     alignment: Alignment.centerLeft,
                                     child: Container(
                                       color: Colors.black,
                                       child: Text(widget.name,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 25,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white,
-                                        ),),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                   Align(
@@ -135,11 +136,17 @@ class _ComicPageState extends State<ComicPage> {
                                       child: Text(widget.genres),
                                     ),
                                   ),
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Container(
-                                      //color: Colors.red,
-                                      child: Text(widget.description),
+                                  Container(
+                                    height: 50,
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Expanded(
+                                        child: SingleChildScrollView(
+                                          //color: Colors.red,
+                                          scrollDirection: Axis.vertical,
+                                          child: Text(widget.description),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                   Align(

@@ -55,13 +55,18 @@ class ComicOverview extends StatelessWidget {
                             child: Text(genres, style: TextStyle(color: Colors.white),),
                           ),
                         ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Container(
-                            //color: Colors.red,
-                            child: Text(description, style: TextStyle(color: Colors.white),),
+                        /*Align(
+                          alignment: Alignment.centerLeft,*/
+                          /*child: */Column(
+                            children: [
+                              Expanded(
+                                child: SingleChildScrollView(
+                                    child: Text(description, style: TextStyle(color: Colors.white),),
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
+                        //),
 
                       ],
                     ),
