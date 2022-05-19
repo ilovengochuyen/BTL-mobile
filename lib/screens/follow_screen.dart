@@ -14,7 +14,7 @@ class FollowScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text('Comicolors',
+        title: const Text('Tủ sách',
             style: TextStyle(
               color: Colors.white,
               fontSize: 17,

@@ -20,8 +20,8 @@ class SingleItem extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: onTap,
-          child: Expanded(
-            flex: 1,
+          /*child: Expanded(
+            flex: 2,*/
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Container(
@@ -40,11 +40,11 @@ class SingleItem extends StatelessWidget {
             ),
 
           ),
-        ),
+        //),
 
 
         Expanded(
-          //flex: 2,
+          flex: 2,
           child: SizedBox(
             height: 80,
             child: Column(
@@ -54,15 +54,15 @@ class SingleItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Expanded(
-                  flex: 2,
+                  flex: 3,
                   child: Text(description,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 10,
                       fontStyle: FontStyle.italic,
                     ),
@@ -74,23 +74,23 @@ class SingleItem extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex:1,
+          flex: 1,
             child: Container(
               height: 90,
               padding: isBool == false
-                ? EdgeInsets.symmetric(horizontal: 15, vertical: 15)
-                  : EdgeInsets.only(left: 15, right: 15),
+                ? const EdgeInsets.symmetric(horizontal: 15, vertical: 15)
+                  : const EdgeInsets.only(left: 15, right: 15),
               child: isBool==false
                 ? Container(
               ): Column(
                 children: [
-                  SizedBox(height: 10,),
-                  Icon(
+                  const SizedBox(height: 10,),
+                  const Icon(
                     Icons.delete,
                     size: 25,
                     color: Colors.grey,
                   ),
-                  SizedBox(height: 5,),
+                  const SizedBox(height: 5,),
                   Container(
                     height: 25,
                     width: 70,
@@ -101,7 +101,7 @@ class SingleItem extends StatelessWidget {
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           Icon(
                             Icons.add,
                             color: Colors.deepOrange,

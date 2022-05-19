@@ -146,7 +146,7 @@ class _ComicPageState extends State<ComicPage> {
                                     alignment: Alignment.centerLeft,
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                        minimumSize: Size(20, 10),
+                                        minimumSize: Size(30, 20),
                                       ),
                                       child: Text("Theo dõi"),
                                       onPressed: (){
