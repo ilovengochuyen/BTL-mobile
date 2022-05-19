@@ -1,12 +1,39 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:manga/screens/screens.dart';
 import 'package:manga/widgets/reusable_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'dart:io';
+
+
 import 'comics_screen.dart';
 
-class UserProfile extends StatelessWidget {
+class UserProfile extends StatefulWidget {
+  UserProfile({Key ? key}) : super(key: key);
+
+  @override
+  UserProfileState createState() => UserProfileState();
+}
+
+class UserProfileState extends State<UserProfile> {
+
+  File ? image;
+
+  Future pickImage(ImageSource _source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: _source);
+
+      if (image == null) return;
+
+      final imageTemp = File(image.path);
+      setState(() => this.image = imageTemp);
+    } on PlatformException catch(e) {
+      print("Failed to pick image: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,17 +59,20 @@ class UserProfile extends StatelessWidget {
                         child: Stack(
                           fit: StackFit.expand,
                           children: [
-                            const CircleAvatar(
+                            CircleAvatar(
                                 maxRadius: 75,
                                 backgroundColor: Colors.white,
                                 child: CircleAvatar(
                                   maxRadius: 70,
-                                  backgroundImage: AssetImage("assets/userimage.png"),)
+                                  backgroundImage: (image == null)
+                                      ? AssetImage("assets/userimage.png")
+                                      : FileImage(File(image!.path)) as ImageProvider
+                                )
                             ),
 
                             Positioned(
-                                bottom: 0.0,
-                                right: 0.0,
+                                bottom: 0,
+                                right: 0,
                                 child: Container(
                                     height: 40,
                                     width: 40,
@@ -55,10 +85,24 @@ class UserProfile extends StatelessWidget {
                                       color: Colors.grey,
                                     ),
 
-                                    child: //Icon(Icons.edit, color: Colors.white,)
+
+                                    child: InkWell(
+                                      onTap: () {
+                                        showModalBottomSheet(
+                                          context: context,
+                                          builder: ((builder) => bottomSheet()),
+    );
+
+                                      },
+                                        child: const Icon(Icons.edit, color: Colors.white,)
+
+                                    )
+
+                                    /*
                                     reusableButton("setting", const Icon(Icons.edit, color: Color.fromARGB(255, 22, 20, 20),), (){
                                       Navigator.push(context, MaterialPageRoute(builder: (context)=> const EditProfile()));
                                     })
+                                */
                                     )),
                           ],
 
@@ -211,4 +255,46 @@ class UserProfile extends StatelessWidget {
     );
 
   }
+  Widget bottomSheet() {
+    return Container(
+      height: 100.0,
+      width: MediaQuery.of(context).size.width,
+      margin: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 20,
+      ),
+      child: Column(
+        children: <Widget>[
+          const Text(
+            "Chọn ảnh từ: ",
+            style: TextStyle(
+              fontSize: 20.0,
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+            TextButton.icon(
+              icon: const Icon(Icons.camera),
+              onPressed: () {
+                pickImage(ImageSource.camera);
+              },
+              label: const Text("Máy ảnh", style: TextStyle(color: Colors.black),),
+            ),
+            TextButton.icon(
+              icon: const Icon(Icons.image),
+              onPressed: () {
+                pickImage(ImageSource.gallery);
+              },
+              label: const Text("Thư viện", style: TextStyle(color: Colors.black)),
+            ),
+          ])
+        ],
+      ),
+    );
+  }
+
 }
+
+

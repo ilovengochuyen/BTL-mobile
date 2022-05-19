@@ -5,7 +5,7 @@ import 'package:manga/screens/screens.dart';
 import 'package:manga/providers/UserID.dart';
 import 'package:provider/provider.dart';
 
-
+/*
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -92,3 +92,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+*/
