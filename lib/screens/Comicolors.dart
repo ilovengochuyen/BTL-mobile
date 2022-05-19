@@ -1,59 +1,27 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-//import 'package:home_screen/screen/cart/cart.dart';
 import 'package:manga/comic/comic_page.dart';
-import 'package:manga/providers/banner_provider.dart';
 import 'package:manga/providers/comic_provider.dart';
 import 'package:manga/comic/single_comic.dart';
 import 'package:manga/screens/comics_screen.dart';
 import 'package:manga/screens/screens.dart';
 import 'package:manga/search/search.dart';
 import 'package:provider/provider.dart';
-
 import '../widgets/reusable_widget.dart';
-import 'Comicolors.dart';
 
 
-class ComicHomeScreen extends StatefulWidget {
-  const ComicHomeScreen({Key? key}) : super(key: key);
+class ComicolorsScreen extends StatefulWidget {
+  const ComicolorsScreen({Key? key}) : super(key: key);
 
   @override
-  State<ComicHomeScreen> createState() => _ComicHomeScreenState();
+  State<ComicolorsScreen> createState() => _ComicolorsScreenState();
 }
 
 
-class _ComicHomeScreenState extends State<ComicHomeScreen> {
+class _ComicolorsScreenState extends State<ComicolorsScreen> {
   ComicProvider comicProvider = ComicProvider();
-  BannerProvider bannerProvider = BannerProvider();
 
-  Widget _buildCarouselSlider(context) {
-    bannerProvider = Provider.of(context);
-    return CarouselSlider(
-      items: bannerProvider.getBanner
-          .map((data) {
-        return Padding(
-          padding: const EdgeInsets.all(8),
-          child: Container(
-            height: 120,
-            //padding: EdgeInsets.all(5),
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              image: DecorationImage(
-                  image: NetworkImage(
-                    data.image,
-                  ),
-                  fit: BoxFit.fill
-              ),
-            ),
-          ),
-        );
-      })
-          .toList(), options: CarouselOptions(),
-    );
-  }
-
-  Widget _buildNewestComic(context) {
+  Widget _buildCannotLeftBehindComic(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -62,7 +30,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Mới nhất',
+              const Text('Không thể bỏ qua',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -77,7 +45,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: comicProvider.getNewestComicDataList
+            children: comicProvider.getNewestComicDataList.reversed
                 .map((newestComicData) {
               return SingleComic(
                 onTap: () {
@@ -99,7 +67,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
       ],
     );
   }
-  Widget _buildHottestComic(context) {
+  Widget _buildOfWeekComic(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -108,7 +76,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Hấp dẫn nhất',
+              const Text('Truyện của tuần',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -146,7 +114,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
       ],
     );
   }
-  Widget _buildActionComic(context) {
+  Widget _buildNewComic(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -155,7 +123,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Hành động',
+              const Text('Truyện mới',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -170,7 +138,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: comicProvider.getActionComicDataList
+            children: comicProvider.getSoLComicDataList.reversed
                 .map((hottestComicData) {
               return SingleComic(
                 onTap: () {
@@ -193,7 +161,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
       ],
     );
   }
-  Widget _buildSoLComic(context) {
+  Widget _buildSupriseComic(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -202,7 +170,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Đời thường',
+              const Text('Khám phá bất ngờ',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -217,54 +185,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: comicProvider.getSoLComicDataList
-                .map((hottestComicData) {
-              return SingleComic(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ComicPage(image: hottestComicData.image,
-                          name: hottestComicData.name, genres: hottestComicData.genres, description: hottestComicData.description,
-                          author: hottestComicData.author),
-                    ),
-                  );},
-                image: hottestComicData.image,
-                name: hottestComicData.name,
-
-              );
-            })
-                .toList(),
-          ),
-        ),
-      ],
-    );
-  }
-  Widget _buildRomanticComic(context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text('Lãng mạn',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),),
-              Text('Xem tất cả',
-                  style: TextStyle(
-                    color: Colors.grey[400],
-                  )),
-            ],
-          ),
-        ),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: comicProvider.getRomanticComicDataList
+            children: comicProvider.getRomanticComicDataList.reversed
                 .map((hottestComicData) {
               return SingleComic(
                 onTap: () {
@@ -291,13 +212,11 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
   @override
   void initState() {
     ComicProvider comicProvider = Provider.of(context, listen: false);
-    BannerProvider bannerProvider = Provider.of(context, listen: false);
     comicProvider.fatchNewestComicData();
     comicProvider.fatchHottestComicData();
     comicProvider.fatchActionComicData();
     comicProvider.fatchRomanticComicData();
     comicProvider.fatchSoLComicData();
-    bannerProvider.fatchBannerData();
     super.initState();
   }
 
@@ -305,56 +224,36 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
   Widget build(BuildContext context) {
     comicProvider = Provider.of(context);
     return Scaffold(
-        appBar: AppBar(
-          iconTheme: const IconThemeData(color: Colors.black),
-          title: const Text('Comico',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 17,
-              )),
-          actions: [
-            CircleAvatar(
-              radius: 16,
-              backgroundColor: Colors.white,
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => SearchPage(search: comicProvider.getAllSearchItem,),),);
-                },
-                icon: const Icon(Icons.search, size: 17, color: Colors.black),
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.black),
+        title: const Text('Comicolors',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 17,
+            )),
+        backgroundColor: Colors.deepOrange,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        child: ListView(
+          children: [
+          Container(
+            height: 200,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage("https://i.pinimg.com/564x/a4/71/34/a471343b7c83597935236dbd22a94849.jpg"),
               ),
+              borderRadius: BorderRadius.circular(10),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: CircleAvatar(
-                radius: 16,
-                backgroundColor: Colors.white,
-                child: IconButton(
-                  onPressed: () {
-                    //Navigator.of(context).push(MaterialPageRoute(builder: (context) => Cart(),),);
-                  },
-                  icon: const Icon(Icons.shop, size: 17, color: Colors.black),
-                ),
-              ),
-            ),
-          ],
-          backgroundColor: Colors.deepOrange,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          child: ListView(
-            children: [
-              Container(
-                //height: 200,
-                  child: _buildCarouselSlider(context)//Carousel(),
-              ),
-              _buildNewestComic(context),
-              _buildHottestComic(context),
-              _buildActionComic(context),
-              _buildRomanticComic(context),
-              _buildSoLComic(context),
-            ],
           ),
+            _buildCannotLeftBehindComic(context),
+            _buildNewComic(context),
+            _buildOfWeekComic(context),
+            _buildSupriseComic(context),
+          ],
         ),
+      ),
       bottomNavigationBar: Container(
           padding: const EdgeInsets.symmetric(vertical: 14,),
           decoration: BoxDecoration(
@@ -387,7 +286,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
                   button2("Comicolours", const Icon(Icons.edit), () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ComicolorsScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> ComicolorsScreen()));
                   }),
                   //IconButton(onPressed: () {}, icon: Icon(Icons.account_circle), color: Colors.deepOrange,),
                   button2("Cá nhân", const Icon(Icons.account_circle), () {

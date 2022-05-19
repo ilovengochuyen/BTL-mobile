@@ -284,9 +284,9 @@ class _ComicsScreenState extends State<ComicsScreen> {
                           day[0]=false;
                           day[1]=false;
                           day[2]=false;
-                          day[3]=false;
+                          day[3]=true;
                           day[4]=false;
-                          day[5]=true;
+                          day[5]=false;
                           day[6]=false;
                           setState(() {});
                           print("true");
