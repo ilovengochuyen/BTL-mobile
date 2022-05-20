@@ -16,15 +16,14 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text('Tủ sách',
+        title: const Text('Sản phẩm',
             style: TextStyle(
               color: Colors.white,
               fontSize: 17,
             )),
         backgroundColor: Colors.deepOrange,
       ),
-      body:
-      ListView.builder(
+      body: ListView.builder(
           itemCount: cartProvider.getCartList.length,
           itemBuilder: (context, index) {
             CartModel data = cartProvider.getCartList[index];
@@ -42,6 +41,23 @@ class CartPage extends StatelessWidget {
               ],
             );
           }),
+      bottomNavigationBar: ListTile(
+        title: Text("Tổng tiền"),
+        subtitle: Text(
+          "${cartProvider.getTotalPrice()} VND",
+          style: TextStyle(
+            color: Colors.grey,
+          ),
+        ),
+        trailing: Container(
+          width: 160,
+          child: MaterialButton(
+              child: Text("Mua", style: TextStyle(color: Colors.white),),
+              color: Colors.deepOrange,
+              onPressed: (){}
+          ),
+        ),
+      ),
     );
   }
 }

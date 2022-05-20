@@ -124,7 +124,6 @@ class _ProductScreenState extends State<ProductScreen> {
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: ListView(
           children: [
-
             _buildNendroidProduct(context),
           ],
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:manga/providers/cart_provider.dart';
-import 'package:manga/providers/chapter_provider.dart';
 import 'package:manga/providers/follow_comic_provider.dart';
 import 'package:manga/providers/product_provider.dart';
 import 'package:provider/provider.dart';
@@ -109,12 +108,13 @@ class _ProductPageState extends State<ProductPage> {
               cartDescription: widget.description,
               cartImage: widget.image,
               cartId: widget.id,
+              cartPrice: widget.price
             );
           },
-          child: Text("Thêm vào giỏ hàng"),
+          child: const Text("Thêm vào giỏ hàng"),
           style: ElevatedButton.styleFrom(
             primary: Colors.deepOrange,
-            minimumSize: Size(50, 50),
+            minimumSize: const Size(50, 50),
           ),
 
     ),

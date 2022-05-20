@@ -9,6 +9,7 @@ class CartProvider with ChangeNotifier {
     String? cartName,
     String? cartImage,
     String? cartDescription,
+    int? cartPrice,
   }) async {
     FirebaseFirestore.instance
         .collection("CartProduct")
@@ -20,7 +21,8 @@ class CartProvider with ChangeNotifier {
         "id":cartId,
         "name":cartName,
         "image":cartImage,
-        "description":cartDescription
+        "description":cartDescription,
+        "price": cartPrice
       },
     );
   }
@@ -38,6 +40,7 @@ class CartProvider with ChangeNotifier {
           cartImage: element.get("image"),
           cartName: element.get("name"),
           cartDescription: element.get("description"),
+          cartPrice: element.get("price"),
           cartId: element.get("id"));
       newList.add(cartModel);
     });
@@ -47,5 +50,13 @@ class CartProvider with ChangeNotifier {
 
   List<CartModel> get getCartList {
     return cartList;
+  }
+
+  getTotalPrice() {
+    int total = 0;
+    cartList.forEach((element) {
+      total += element.cartPrice;
+    });
+    return total;
   }
 }
