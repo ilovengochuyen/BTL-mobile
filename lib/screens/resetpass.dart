@@ -102,9 +102,9 @@ class _resetPasswordState extends State<resetPassword> {
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(90)),
                       child: ElevatedButton(
                         onPressed: passwordReset,
-                        child: Text(
+                        child: const Text(
                           "Reset Password",
-                          style: const TextStyle(
+                          style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
                         ),
                         style: ButtonStyle(
@@ -127,16 +127,16 @@ class _resetPasswordState extends State<resetPassword> {
                             onPressed: () {
                               Navigator.pushNamed(context, 'signup');
                             },
-                            child: Text(
+                            child: const Text(
                               'Sign Up',
                               style: TextStyle(color: Colors.deepOrange),
                             ),
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'comic_home_screen');
+                              Navigator.pushNamed(context, 'login');
                             },
-                            child: Text(
+                            child: const Text(
                               'Log In',
                               style: TextStyle(color: Colors.deepOrange),
                             ),
