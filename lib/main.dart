@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:manga/providers/banner_provider.dart';
 import 'package:manga/providers/cart_provider.dart';
 import 'package:manga/providers/chapter_provider.dart';
+import 'package:manga/providers/check_provider.dart';
 import 'package:manga/providers/comic_provider.dart';
 import 'package:manga/providers/UserID.dart';
 import 'package:manga/providers/follow_comic_provider.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<FollowComicProvider>(create: (context)=>FollowComicProvider()),
         ChangeNotifierProvider<ProductProvider>(create: (context)=>ProductProvider()),
         ChangeNotifierProvider<CartProvider>(create: (context)=>CartProvider()),
+        ChangeNotifierProvider<CheckoutProvider>(create: (context)=>CheckoutProvider()),
       ],
           child: MaterialApp(
           debugShowCheckedModeBanner: false,

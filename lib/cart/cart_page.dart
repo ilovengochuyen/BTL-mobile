@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manga/delivery/delivery_details.dart';
 import 'package:manga/model/CartModel.dart';
 import 'package:manga/model/FollowComicModel.dart';
 import 'package:manga/providers/cart_provider.dart';
@@ -52,9 +53,11 @@ class CartPage extends StatelessWidget {
         trailing: Container(
           width: 160,
           child: MaterialButton(
-              child: Text("Mua", style: TextStyle(color: Colors.white),),
+              child: Text("Thanh toán", style: TextStyle(color: Colors.white),),
               color: Colors.deepOrange,
-              onPressed: (){}
+              onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => DeliveryDetails(),),);
+              }
           ),
         ),
       ),
