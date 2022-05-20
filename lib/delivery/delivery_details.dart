@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:manga/delivery/payment.dart';
+import 'package:manga/payment/payment.dart';
 import 'package:manga/delivery/single_delivery.dart';
 import 'package:manga/model/DeliveryModel.dart';
 import 'package:provider/provider.dart';

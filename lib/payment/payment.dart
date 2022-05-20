@@ -5,6 +5,7 @@ import 'package:manga/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../cart/order_item.dart';
+import 'google_pay.dart';
 
 class PaymentSummary extends StatefulWidget {
   final DeliveryModel deliverAddressList;
@@ -38,9 +39,9 @@ class _PaymentSummaryState extends State<PaymentSummary> {
       bottomNavigationBar: ListTile(
         title: Text("Tổng tiền"),
         subtitle: Text(
-          "${cartProvider.getTotalPrice()}",
+          "${cartProvider.getTotalPrice()} VND",
           style: TextStyle(
-            color: Colors.green[900],
+            color: Colors.red,
             fontWeight: FontWeight.bold,
             fontSize: 17,
           ),
@@ -49,15 +50,15 @@ class _PaymentSummaryState extends State<PaymentSummary> {
           width: 160,
           child: MaterialButton(
             onPressed: () {
-              // myType == AddressTypes.OnlinePayment
-              //     ? Navigator.of(context).push(
-              //         MaterialPageRoute(
-              //           builder: (context) => MyGooglePay(
-              //             total: total,
-              //           ),
-              //         ),
-              //       )
-              //     : Container();
+              myType == AddressTypes.OnlinePayment
+                   ? Navigator.of(context).push(
+                       MaterialPageRoute(
+                         builder: (context) => MyGooglePay(
+                           total: cartProvider.getTotalPrice(),
+                         ),
+                       ),
+                     )
+                   : Container();
 
             },
             child: Text(

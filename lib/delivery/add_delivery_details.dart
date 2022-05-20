@@ -26,6 +26,7 @@ class _AddDeliverAddressState extends State<AddDeliverAddress> {
           "Thêm thông tin nhận hàng",
           style: TextStyle(fontSize: 18),
         ),
+        backgroundColor: Colors.deepOrange,
       ),
       bottomNavigationBar: Container(
         margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),

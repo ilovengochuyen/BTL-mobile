@@ -17,7 +17,7 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text('Sản phẩm',
+        title: const Text('Giỏ hàng',
             style: TextStyle(
               color: Colors.white,
               fontSize: 17,
