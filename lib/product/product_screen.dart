@@ -5,6 +5,8 @@ import 'package:manga/providers/product_provider.dart';
 import 'package:manga/search/search.dart';
 import 'package:provider/provider.dart';
 
+import '../cart/cart_page.dart';
+
 
 class ProductScreen extends StatefulWidget {
   const ProductScreen({Key? key}) : super(key: key);
@@ -100,6 +102,21 @@ class _ProductScreenState extends State<ProductScreen> {
               icon: const Icon(Icons.search, size: 17, color: Colors.black),
             ),
           ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                radius: 16,
+                backgroundColor: Colors.white,
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => CartPage(),),);
+                  },
+                  icon: const Icon(Icons.shopping_cart_rounded, size: 17, color: Colors.black),
+                ),
+              ),
+            ),
+
         ],
         backgroundColor: Colors.deepOrange,
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manga/providers/cart_provider.dart';
 import 'package:manga/providers/chapter_provider.dart';
 import 'package:manga/providers/follow_comic_provider.dart';
 import 'package:manga/providers/product_provider.dart';
@@ -24,8 +25,13 @@ class _ProductPageState extends State<ProductPage> {
 
   @override
   Widget build(BuildContext context) {
+    CartProvider cartProvider = Provider.of(context);
     return Scaffold(
-        appBar: AppBar(title: Text(widget.name), backgroundColor: Colors.deepOrange,),
+        appBar: AppBar(
+          title: Text(widget.name),
+          backgroundColor: Colors.deepOrange,
+
+        ),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           child: ListView(
@@ -43,36 +49,41 @@ class _ProductPageState extends State<ProductPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Container(
-                        color: Colors.black,
-                        child: Text(widget.name,
-                          style: const TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                        color: Colors.deepOrange,
+                        child: Center(
+                          child: Text(widget.name,
+                            style: const TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
                     ),
+                    const SizedBox(height:10,),
                     Align(
                       alignment: Alignment.centerLeft,
-                      child: Container(
-                        color: Colors.black,
-                        child: Text(widget.price.toString(),
-                          style: const TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                      child: Center(
+                        child: Container(
+                          child: Text(widget.price.toString() + " VND",
+                            style: const TextStyle(
+                              fontSize: 30,
+                              color: Colors.red, fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
                     ),
+                    const SizedBox(height:10,),
                     Container(
-                      height: 50,
+                      height: 75,
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Expanded(
@@ -87,24 +98,26 @@ class _ProductPageState extends State<ProductPage> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text('Danh sách sản phẩm',
-                      style: TextStyle(
-                        color: Colors.blueGrey,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),),
-                  ],
-                ),
-              ),
-              const SizedBox(height:10,),
+
             ],
           ),
-        )
+        ),
+        bottomNavigationBar: ElevatedButton(
+          onPressed: () {
+            cartProvider.addCartData(
+              cartName: widget.name,
+              cartDescription: widget.description,
+              cartImage: widget.image,
+              cartId: widget.id,
+            );
+          },
+          child: Text("Thêm vào giỏ hàng"),
+          style: ElevatedButton.styleFrom(
+            primary: Colors.deepOrange,
+            minimumSize: Size(50, 50),
+          ),
+
+    ),
     );
   }
 }

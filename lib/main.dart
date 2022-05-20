@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:manga/providers/banner_provider.dart';
+import 'package:manga/providers/cart_provider.dart';
 import 'package:manga/providers/chapter_provider.dart';
 import 'package:manga/providers/comic_provider.dart';
 import 'package:manga/providers/UserID.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<UserProvider>(create: (context)=>UserProvider()),
         ChangeNotifierProvider<FollowComicProvider>(create: (context)=>FollowComicProvider()),
         ChangeNotifierProvider<ProductProvider>(create: (context)=>ProductProvider()),
+        ChangeNotifierProvider<CartProvider>(create: (context)=>CartProvider()),
       ],
           child: MaterialApp(
           debugShowCheckedModeBanner: false,
