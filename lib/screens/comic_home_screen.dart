@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 //import 'package:home_screen/screen/cart/cart.dart';
 import 'package:manga/comic/comic_page.dart';
+import 'package:manga/product/product_screen.dart';
 import 'package:manga/providers/banner_provider.dart';
 import 'package:manga/providers/comic_provider.dart';
 import 'package:manga/comic/single_comic.dart';
@@ -332,7 +333,7 @@ class _ComicHomeScreenState extends State<ComicHomeScreen> {
                 backgroundColor: Colors.white,
                 child: IconButton(
                   onPressed: () {
-                    //Navigator.of(context).push(MaterialPageRoute(builder: (context) => Cart(),),);
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductScreen(),),);
                   },
                   icon: const Icon(Icons.shop, size: 17, color: Colors.black),
                 ),

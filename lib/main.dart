@@ -5,6 +5,7 @@ import 'package:manga/providers/chapter_provider.dart';
 import 'package:manga/providers/comic_provider.dart';
 import 'package:manga/providers/UserID.dart';
 import 'package:manga/providers/follow_comic_provider.dart';
+import 'package:manga/providers/product_provider.dart';
 import 'package:manga/screens/screens.dart';
 import 'package:provider/provider.dart';
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<BannerProvider>(create: (context)=>BannerProvider()),
         ChangeNotifierProvider<UserProvider>(create: (context)=>UserProvider()),
         ChangeNotifierProvider<FollowComicProvider>(create: (context)=>FollowComicProvider()),
+        ChangeNotifierProvider<ProductProvider>(create: (context)=>ProductProvider()),
       ],
           child: MaterialApp(
           debugShowCheckedModeBanner: false,
