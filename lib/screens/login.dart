@@ -65,7 +65,7 @@ class LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                 const SizedBox(
                   height: 30,
                 ),
-                reusableTextField("Enter Username", Icons.person_outline, false,
+                reusableTextField("Enter Email", Icons.person_outline, false,
                     _emailTextController),
                 const SizedBox(
                   height: 20,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:manga/delivery/single_delivery.dart';
 import 'package:manga/model/DeliveryModel.dart';
 import 'package:manga/providers/cart_provider.dart';
+import 'package:manga/screens/success.dart';
 import 'package:provider/provider.dart';
 
 import '../cart/order_item.dart';
@@ -58,7 +59,11 @@ class _PaymentSummaryState extends State<PaymentSummary> {
                          ),
                        ),
                      )
-                   : Container();
+                   : Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => Sucess()
+                ),
+              );
 
             },
             child: Text(
