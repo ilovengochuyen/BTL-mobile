@@ -6,14 +6,22 @@ class Sucess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Đặt hàng thành công",
-        style: TextStyle(
-          color: Colors.deepOrange,
-          fontSize: 30,
-        ),
-      )
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Tình trạng", style: TextStyle(fontSize: 18),),
+        backgroundColor: Colors.deepOrange,
+      ),
+      body: Center(
+          child: Text(
+            "Đặt hàng thành công",
+            style: TextStyle(
+              color: Colors.deepOrange,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          )
+      ),
     );
+
   }
 }
