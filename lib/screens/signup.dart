@@ -17,15 +17,25 @@ class SignupPage extends StatefulWidget {
   @override
   SignupPageState createState() => SignupPageState();
 }
-class SignupPageState extends State<SignupPage> {
+class SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
   final TextEditingController _passwordTextController = TextEditingController();
   final TextEditingController _emailTextController = TextEditingController();
   final TextEditingController _userNameTextController = TextEditingController();
   File ? avatar ;
 
-  @override
+  late AnimationController _controller;
+  late Animation<double> _animation;
 
-  
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this, duration: const Duration(seconds: 2));
+    _animation = CurvedAnimation(parent: _controller, curve: Curves.ease);
+
+    _controller.repeat(reverse: true);
+  }
+
+  @override
   Widget build(BuildContext context) {
 
 
@@ -52,7 +62,7 @@ class SignupPageState extends State<SignupPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset("assets/comico.png"),
+                FadeTransition(opacity: _animation, child: Image.asset("assets/comico.png")),
                 const SizedBox(
                   height: 20,
                 ),

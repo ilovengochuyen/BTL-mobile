@@ -14,9 +14,21 @@ class LoginPage extends StatefulWidget {
   LoginPageState createState() => LoginPageState();
 }
 
-class LoginPageState extends State<LoginPage> {
+class LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   final TextEditingController _passwordTextController = TextEditingController();
   final TextEditingController _emailTextController = TextEditingController();
+
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this, duration: const Duration(seconds: 2));
+    _animation = CurvedAnimation(parent: _controller, curve: Curves.ease);
+
+    _controller.repeat(reverse: true);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +60,8 @@ class LoginPageState extends State<LoginPage> {
             child: Column (
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset("assets/comico.png"),
+                FadeTransition(opacity: _animation,
+                    child: Image.asset("assets/comico.png"),),
                 const SizedBox(
                   height: 30,
                 ),
@@ -77,7 +90,7 @@ class LoginPageState extends State<LoginPage> {
                     showDialog(
                         context: context,
                         builder: (context) {
-                          return AlertDialog(
+                          return const AlertDialog(
                             content: Text("Bạn chưa nhập đủ thông tin hoặc nhập chưa chính xác, vui lòng nhập lại!"),
                           );
                         });
